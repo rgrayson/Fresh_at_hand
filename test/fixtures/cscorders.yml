@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  storeid: 1
+  ordsts: MyString
+  submitted_dte: 2016-09-26 15:43:24
+  submitted_by: MyString
+  mcode: MyString
+  dte: 2016-09-26
+
+two:
+  storeid: 1
+  ordsts: MyString
+  submitted_dte: 2016-09-26 15:43:24
+  submitted_by: MyString
+  mcode: MyString
+  dte: 2016-09-26

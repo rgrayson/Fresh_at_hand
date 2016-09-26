@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  storeid: 1
+  mcode: MyString
+  dte: 2016-09-26
+
+two:
+  storeid: 1
+  mcode: MyString
+  dte: 2016-09-26
