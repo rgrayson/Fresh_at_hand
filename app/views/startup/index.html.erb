@@ -2,10 +2,33 @@
 <h2>Fresh Food Ordering</h2>
 <br>
 
-<form action = "\startup\login" >
-    <input type ="submit" value="Login" />
-</form>
 
-<form action = "\startup\maintenance" >
-    <input type ="submit" value="Maintenance" />
-</form>
+<%= form_tag("/startup/login", method: "get") do %>
+    
+    <%= label_tag(:Username, "Username:") %>
+    <%= text_field_tag(:username) %>
+
+    
+    <table>
+    <tr>
+        <td>
+            <form action = "/startup/login" >
+                <input type ="submit" value="Login" action = "\startup\login" />
+            </form>
+        </td>
+        
+        </td>
+        <td>
+            <form action = "/startup/maintenance" >
+                <input type ="submit" value="Maintenance" />
+            </form>
+        </td>
+    </tr>    
+    </table>
+    
+    <%= submit_tag("Search") %>
+    
+<% end %>
+
+
+

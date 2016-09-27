@@ -1,6 +1,7 @@
 class StartupController < ApplicationController
 
 def login
+   
    render "login.html.erb"
    
 end    
