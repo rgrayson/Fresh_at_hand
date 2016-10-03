@@ -1,32 +1,37 @@
 <h1>AVI FOODSYSTEMS INC.</h1>
 <h2>Fresh Food Ordering</h2>
-<br>
 
 
 <%= form_tag("/startup/login", method: "get") do %>
     
-    <%= label_tag(:Username, "Username:") %>
-    <%= text_field_tag(:username) %>
-
+    <table style="width:40%">
+    <col style="width:5%">
+    <col style="width:35%">
+    <tr>
+        <td>Username:</td>
+        <td><%= text_field_tag(:username, params[:u])%></td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><%= text_field_tag(:password,params[:p]) %></td>
+    </tr>
+    <tr>
+         <td>Login As:</td>
+         <td><%= select_tag "ltyp", options_for_select([ "User", "Admin" ], params[:ltyp]) %></td>
+    </tr>
+    
+    </table>
+    
+     <br>
     
     <table>
     <tr>
-        <td>
-            <form action = "/startup/login" >
-                <input type ="submit" value="Login" action = "\startup\login" />
-            </form>
-        </td>
-        
-        </td>
-        <td>
-            <form action = "/startup/maintenance" >
-                <input type ="submit" value="Maintenance" />
-            </form>
-        </td>
-    </tr>    
-    </table>
+        <td><%= submit_tag("Login") %></td>
+        <td><p style="color:red"> <%=params[:msg]%> </p></td>
+    </tr>
+    </table
+   
     
-    <%= submit_tag("Search") %>
     
 <% end %>
 

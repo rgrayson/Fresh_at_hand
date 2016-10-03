@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
  root "startup#index"
  get 'startup/login' =>'startup#login'
+ get 'startup/user' =>'startup#user'
  get 'startup/maintenance' =>'startup#maintenance'
  
  

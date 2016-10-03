@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926163202) do
+ActiveRecord::Schema.define(version: 20160930173101) do
 
   create_table "cscorderlis", force: :cascade do |t|
     t.integer  "storeid"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20160926163202) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "maintadmins", force: :cascade do |t|
+    t.string   "user"
+    t.string   "pw"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mrktcstores", force: :cascade do |t|
     t.integer  "storeid"
     t.string   "storename"
@@ -50,9 +57,10 @@ ActiveRecord::Schema.define(version: 20160926163202) do
     t.string   "flddesc"
     t.integer  "sub"
     t.string   "subdesc"
-    t.string   "usercode"
+    t.string   "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "pw"
   end
 
 end
