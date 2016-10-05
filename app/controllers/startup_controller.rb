@@ -37,12 +37,12 @@ def login
   #validate login
   
   if lt=="User"
-      #user login look in Mrktcstore model for user/pw
+      #user login, look in Storeperm model for user/pw
       #@t becomes list of allowable stores for user/pw
-      @t=Mrktcstore.where("user=? and pw=?",u,p)
+      @t=Storeperm.where("user=? and pw=?",u,p)
       if @t.any?
           #found
-          redirect_to startup_user_path and return  
+          redirect_to startup_user_path(u: u,p: p) and return  
       else
             #not an admin user/pw
             @e=1
@@ -55,7 +55,7 @@ def login
         @t=Maintadmin.where("user=? and pw=?",u,p)
         if @t.any?
             #found
-             redirect_to startup_maintenance_path and return  
+             redirect_to startup_maintenance_path(u: u,p: p) and return  
         else
             #not an admin user/pw
             @e=1
@@ -68,9 +68,11 @@ def login
 end    
 
 def user
+    @t=Mrktcstore.joins("INNER JOIN storeperms on storeperms.storeid = mrktcstores.storeid").where("user=? and pw=?",params[:u],params[:p])
 end
 
 def maintenance
+    @t=Maintadmin.where("user=? and pw=?",params[:u],params[:p])
 end    
 
 

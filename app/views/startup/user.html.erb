@@ -1,8 +1,44 @@
 <p>AVI FOODSYSTEMS INC.   Fresh Food Ordering</p>
 <p>User view</p>
 
+<table>
+  
+  <style>
+    table {font-family: arial, sans-serif;
+           border-collapse: collapse;
+           width: 80%;
+           }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
 
-<%= render html: params.inspect %>
+   </style>
+  
+  <col style="width:20%">
+  <col style="width:20%">
+  <col style="width:40%">
+  <col style="width:20%">
+  
+  <tr>
+    <th>LOCNCODE</th>
+    <th>STORE ID</th>
+    <th>STORE NAME</th>
+    <th>OPTIONS</th>
+  </tr>
+  
+  <% @t.each do |tbl| %>
+    <tr>
+      <td><%=tbl.locncode %></td>
+      <td><%=tbl.storeid %></td>
+      <td><%=tbl.storename %></td>
+      <td><%= link_to 'View Orders' %></td>
+    </tr>
+  <% end %>
+  
+  
+</table>
 
 
 <%=link_to "Back", root_path %>
