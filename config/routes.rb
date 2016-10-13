@@ -2,14 +2,8 @@ Rails.application.routes.draw do
  
  root "startup#index"
  get 'startup/login' =>'startup#login'
- get 'startup/user' =>'startup#user'
- get 'startup/maintenance' =>'startup#maintenance'
- 
- 
- 
- 
- 
- 
+ resources :admin
+ resources :user
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

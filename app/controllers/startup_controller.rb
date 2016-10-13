@@ -1,5 +1,8 @@
 class StartupController < ApplicationController
 
+#handles all login validation/routing
+#can be replaced by differnet login process if needed
+
 def login
     
    #capture params    
@@ -42,7 +45,7 @@ def login
       @t=Storeperm.where("user=? and pw=?",u,p)
       if @t.any?
           #found
-          redirect_to startup_user_path(u: u,p: p) and return  
+          redirect_to user_index_path(u: u,p: p) and return  
       else
             #not an admin user/pw
             @e=1
@@ -55,25 +58,16 @@ def login
         @t=Maintadmin.where("user=? and pw=?",u,p)
         if @t.any?
             #found
-             redirect_to startup_maintenance_path(u: u,p: p) and return  
+             redirect_to admin_index_path(u: u, p: p) and return 
         else
-            #not an admin user/pw
-            @e=1
-            @msg ="Username/Password not an Admin"
-            redirect_to root_path(e: @e, msg: @msg,u: u,ltyp: lt) and return
         end 
   end 
   
   
 end    
 
-def user
-    @t=Mrktcstore.joins("INNER JOIN storeperms on storeperms.storeid = mrktcstores.storeid").where("user=? and pw=?",params[:u],params[:p])
-end
 
-def maintenance
-    @t=Maintadmin.where("user=? and pw=?",params[:u],params[:p])
-end    
+
 
 
 end
