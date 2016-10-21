@@ -43,13 +43,15 @@
 <p>Current Store/User List:</p>
 
 <table>
-  <col style="width:20%">
-  <col style="width:20%">
+  <col style="width:10%">
   <col style="width:40%">
   <col style="width:20%">
+  <col style="width:10%">
+  <col style="width:10%">
   
   <tr>
     <th>Store Id</th>
+    <th>Store Name</th>
     <th>User Name</th>
     <th>Password</th>
   </tr>
@@ -58,6 +60,7 @@
 <% @storeper.each do |tbl| %>
     <tr>
       <td><%=tbl.storeid %></td>
+      <td><%=tbl.storename %></td>
       <td><%=tbl.user %></td>
       <td><%=tbl.pw %></td>
       <td><%= link_to "Delete", admin_path(tbl.id),method: :delete,data: { confirm: "Delete store/user/pw permisisons now?" } %></td>

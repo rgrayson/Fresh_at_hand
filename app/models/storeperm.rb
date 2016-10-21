@@ -1,3 +1,4 @@
 class Storeperm < ActiveRecord::Base
-    belongs_to:Mrktcstore
+    self.primary_key ="storeid"
+    belongs_to:Mrktcstore, foreign_key: "storeid"
 end

@@ -3,6 +3,29 @@ class StartupController < ApplicationController
 #handles all login validation/routing
 #can be replaced by differnet login process if needed
 
+def index
+   #perform any startup maintenance
+   #in the future all tables will be updated nightly
+   #by some method from our SQL tables
+   
+   #update storename in Storeperm from data in Mrktcstore
+   #cannot find way to make a simple join for this.
+   @s=Storeperm.all
+   @s.each do |x|
+       x.storename="Unknown"
+       x.save
+       
+       t= Mrktcstore.where("storeid=?", x.storeid)
+       if t.any?
+           t.each do |t2|
+              x.storename=t2.storename
+              x.save
+           end      
+       end
+   end
+end    
+
+
 def login
     
    #capture params    

@@ -2,7 +2,7 @@ class AdminController < ApplicationController
 
 def index
    #set Store permissions list
-   @storeper = Storeperm.all.joins(INNER JOIN storeperms.storeid = mrktcstores.storeid).order("user, pw")
+   @storeper = Storeperm.all.order("user, pw")
    
    #set Store list
    @storelst= Mrktcstore.all.order("storename")

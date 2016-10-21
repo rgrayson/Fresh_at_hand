@@ -1,3 +1,4 @@
 class Mrktcstore < ActiveRecord::Base
-    has_many:Storeperm, foreign_key: "storeid"
+    self.primary_key ="storeid"
+    has_many:Storeperm
 end

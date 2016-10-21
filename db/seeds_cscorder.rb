@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
 Cscorder.create(storeid: '137', prod_id: '216', mcode: 'B1', dte: '11/1/2016', dow: 'Tue',ordsts: '1', ordsts_txt:'ORDR')
 Cscorder.create(storeid: '137', prod_id: '217', mcode: 'B2', dte: '11/3/2016', dow: 'Thu',ordsts: '1', ordsts_txt:'ORDR')
 Cscorder.create(storeid: '137', prod_id: '218', mcode: 'B3', dte: '11/5/2016', dow: 'Sat',ordsts: '1', ordsts_txt:'ORDR')   
