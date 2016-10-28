@@ -1,18 +1,7 @@
-<p>AVI FOODSYSTEMS INC.   Fresh Food Ordering</p>
-<p>Maintenace View</p>
+<h1>AVI FOODSYSTEMS INC.   Fresh Food Ordering</h1>
+<h2>Maintenace View</h2>
+<h3>Session User: <%= session[:u] %></h3> 
 
-<style>
-    table {font-family: arial, sans-serif;
-           border-collapse: collapse;
-           width: 80%;
-           }
-    
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-
-</style>
 
 <p>Add user to store:</p>
 <%= form_for :adduser, url: admin_index_path, method: :post  do |f| %>

@@ -11,14 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020185720) do
+ActiveRecord::Schema.define(version: 20161021175041) do
 
   create_table "cscorderlis", force: :cascade do |t|
-    t.integer  "cscorders_id"
     t.string   "category"
     t.string   "itemnmbr"
     t.string   "itemdesc"
-    t.integer  "mrktc_only"
     t.decimal  "selprc"
     t.string   "uofm"
     t.integer  "qtyord"
@@ -26,9 +24,11 @@ ActiveRecord::Schema.define(version: 20161020185720) do
     t.string   "h_avgord"
     t.string   "h_avgwst"
     t.string   "h_sugord"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "cscorder_id"
+    t.integer  "mrktc_only"
     t.string   "h_range"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "cscorders", force: :cascade do |t|

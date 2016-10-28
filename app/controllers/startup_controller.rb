@@ -8,6 +8,10 @@ def index
    #in the future all tables will be updated nightly
    #by some method from our SQL tables
    
+   #delete any session data
+   session[:u]=nil
+   session[:lt]=nil
+   
    #update storename in Storeperm from data in Mrktcstore
    #cannot find way to make a simple join for this.
    @s=Storeperm.all
@@ -68,6 +72,11 @@ def login
       @t=Storeperm.where("user=? and pw=?",u,p)
       if @t.any?
           #found
+          
+          #store user in session
+          session[:u]=u
+          session[:lt]=lt
+          
           redirect_to user_index_path(u: u,p: p) and return  
       else
             #not an admin user/pw
@@ -81,7 +90,12 @@ def login
         @t=Maintadmin.where("user=? and pw=?",u,p)
         if @t.any?
             #found
-             redirect_to admin_index_path(u: u, p: p) and return 
+             
+            #store user in session
+            session[:u]=u
+            session[:lt]=lt
+             
+            redirect_to admin_index_path(u: u, p: p) and return 
         else
         end 
   end 

@@ -1,24 +1,25 @@
-<h1>AVI FOODSYSTEMS INC.</h1>
-<h2>Fresh Food Ordering</h2>
+<%= render 'layouts/header' %>
+<h2>Login Page</h2>
+
 
 <%= form_tag("/startup/login", method: "get") do %>
     
-    <table style="width:40%">
-    <col style="width:5%">
-    <col style="width:35%">
-    <tr>
-        <td>Username:</td>
-        <td><%= text_field_tag(:username, params[:u])%></td>
-    </tr>
-    <tr>
-        <td>Password:</td>
-        <td><%= text_field_tag(:password,params[:p]) %></td>
-    </tr>
-    <tr>
-         <td>Login As:</td>
-         <td><%= select_tag "ltyp", options_for_select([ "User", "Admin" ], params[:ltyp]) %></td>
-    </tr>
-    
+    <table class="table1">
+
+        <col style="width:5%">
+        <col style="width:35%">
+        <tr>
+            <td>Username:</td>
+            <td><%= text_field_tag(:username, params[:u])%></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><%= password_field_tag(:password,params[:p]) %></td>
+        </tr>
+        <tr>
+             <td>Login As:</td>
+             <td><%= select_tag "ltyp", options_for_select([ "User", "Admin" ], params[:ltyp]) %></td>
+        </tr>
     </table>
     
      <br>

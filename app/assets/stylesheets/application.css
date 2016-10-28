@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+/*
+ General Table Formatting
+*/
+
+.table1{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 35%;   
+    border: none;
+    text-align: left;
+    padding: 8px;
+    }        
+
+.table2{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    font-size: 14px;
+    }
+
+.table2 td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;        
+    } 
+
+.table2 tr{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;        
+    }           
+
+.tableheader1 tr{
+    background-color: black;
+    color: white;
+    text-align: left;
+    height: 40px;
+    }
+

@@ -1,27 +1,14 @@
-<p><strong>AVI FOODSYSTEMS INC.   Fresh Food Ordering</strong></p>
-<p>Available Stores for: <%=params[:u] %></p>
+<%= render 'layouts/header' %>
+<%= render 'user' %>
 
-<table>
+<table class="table2">
   
-  <style>
-    table {font-family: arial, sans-serif;
-           border-collapse: collapse;
-           width: 80%;
-           }
-    
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-
-   </style>
-  
-  <col style="width:20%">
-  <col style="width:20%">
-  <col style="width:40%">
+  <col style="width:15%">
+  <col style="width:15%">
+  <col style="width:50%">
   <col style="width:20%">
   
-  <tr>
+  <tr class="tableheader1">
     <th>LOCNCODE</th>
     <th>STORE ID</th>
     <th>STORE NAME</th>
@@ -33,7 +20,7 @@
       <td><%=tbl.locncode %></td>
       <td><%=tbl.storeid %></td>
       <td><%=tbl.storename %></td>
-      <td><%= link_to 'View Orders' %></td>
+      <td><%= link_to 'View Orders', user_path(id:0, storeid: tbl.storeid)  %></td>
     </tr>
   <% end %>
   
@@ -41,4 +28,4 @@
 </table>
 
 
-<%=link_to "Back", root_path %>
+<br><%=link_to "Logout", root_path %>
