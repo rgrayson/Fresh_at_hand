@@ -6,7 +6,12 @@ end
 
 
 def show
- 
+ @t=Cscorder.where("storeid=?", params[:storeid]).order("dte desc")
+ if @t.any?
+     #records found, ok to render view
+ else
+     #no records redirect back
+ end        
 end
 
 

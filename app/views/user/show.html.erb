@@ -1,9 +1,54 @@
 <%= render 'layouts/header' %>
-<%= render 'user' %>
 
-<p>show html</p>
+<!--Actions bar -->
+<table class="table_actionbar">
+  <col style="width:5">
+  <col style="width:10">
+  <tr>
+    <td><strong>Actions:</strong></td>
+    <td><%=button_to "Back", user_index_path, :method => :get %></td>
+  </tr>
+</table>
 
-<%= params.inspect %>
+<!--Header -->
+<p class="p1">Menus for Store: <%= params[:storeid] %>, <%= params[:storename] %></p>
 
 
-<%=link_to "Back", user_index_path %>
+<!-- Order data -->
+<table class="table2">
+    
+    <col style="width:10%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    
+    <tr class="tableheader1">
+        <th>Menu</th>
+        <th>Wh Delivery Date</th>
+        <th>Day of week</th>
+        <th>Status</th>
+        <th>Submitted Date</th>
+        <th>By</th>
+        <th>Options</th>
+    </tr>
+  
+    <% @t.each do |tbl| %>
+        <tr>
+            <td><%=tbl.mcode%></td>
+            <td><%=tbl.dte.strftime("%m/%d/%y")%></td>
+            <td><%=tbl.dow%></td>
+            <td><%=tbl.ordsts_txt%></td>
+            <td><%=tbl.submitted_dte%></td>
+            <td><%=tbl.submitted_by%></td>
+            <td><%= link_to "View", cscorder_path(id: tbl.id, storeid: params[:storeid],
+                                                  storename: params[:storename])%> </td>
+        </tr>
+        <% end %>
+        
+</table>
+
+        
+

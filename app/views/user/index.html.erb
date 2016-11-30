@@ -1,6 +1,16 @@
 <%= render 'layouts/header' %>
-<%= render 'user' %>
 
+<!--Actions bar -->
+<table class="table_actionbar">
+  <col style="width:5">
+  <col style="width:10">
+  <tr>
+    <td><strong>Actions:</strong></td>
+    <td><%=button_to "Logout", root_path, :method => :get %></td>
+  </tr>
+</table>
+
+<%= render 'user' %>
 <table class="table2">
   
   <col style="width:15%">
@@ -20,7 +30,7 @@
       <td><%=tbl.locncode %></td>
       <td><%=tbl.storeid %></td>
       <td><%=tbl.storename %></td>
-      <td><%= link_to 'View Orders', user_path(id:0, storeid: tbl.storeid)  %></td>
+      <td><%= link_to 'View Orders', user_path(id: tbl.id, storeid: tbl.storeid, storename: tbl.storename)  %></td>
     </tr>
   <% end %>
   
@@ -28,4 +38,4 @@
 </table>
 
 
-<br><%=link_to "Logout", root_path %>
+

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
  get 'startup/login' =>'startup#login'
  resources :admin
  resources :user
+ resources :cscorder
+ 
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

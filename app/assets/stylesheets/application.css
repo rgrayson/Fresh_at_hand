@@ -21,20 +21,32 @@
  General Table Formatting
 */
 
+.p1{
+    font-weight: bold
+    }
+
+.p_alert1{
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    }
+
+
 .table1{
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 35%;   
+    width: 50%;   
     border: none;
     text-align: left;
-    padding: 8px;
+    padding: 2px;
     }        
 
 .table2{
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 80%;
-    font-size: 14px;
+    width: 100%;
+    font-size: 16px;
     }
 
 .table2 td{
@@ -49,10 +61,20 @@
     padding: 8px;        
     }           
 
-.tableheader1 tr{
+
+.tableheader1 th{
+    border: 1px solid #dddddd;
     background-color: black;
     color: white;
     text-align: left;
     height: 40px;
     }
 
+.table_actionbar{
+    font-family: arial, sans-serif;
+    width: 30%;   
+    border: 3px solid #dddddd;
+    border-color: blue;
+    text-align: left;
+    padding: 1px;
+    }        
