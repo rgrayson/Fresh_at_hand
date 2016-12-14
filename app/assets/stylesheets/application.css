@@ -62,6 +62,23 @@
     }           
 
 
+.table3{
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    width: 80%;   
+    border: none;
+    text-align: left;
+    padding: 1px;
+    }        
+
+.table3 tr{
+    border: none;
+    text-align: left;
+    padding: 1px;
+    height: 1px;
+    }           
+
+
 .tableheader1 th{
     border: 1px solid #dddddd;
     background-color: black;

@@ -1,3 +1,11 @@
-<h1><strong>AVI FOODSYSTEMS INC.   Fresh Food Ordering</strong></h1>
+<h1><%= image_tag("avi_logo.jpg", alt: "avi logo", height: "35", width: "45") %>
+    AVI FOODSYSTEMS INC.   Fresh Food Ordering |  
+    <%=link_to "Logout", root_path, :method => :get %></h1>
 
+<% if flash[:notice] %>
+  <p class="p_alert1"><%= flash[:notice] %></p>
+  <% flash[:notice]=nil %>
+ <% else %>
+     <p></p>
+<% end %>
 

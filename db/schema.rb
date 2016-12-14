@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021175041) do
+ActiveRecord::Schema.define(version: 20161213201535) do
 
   create_table "cscorderlis", force: :cascade do |t|
     t.string   "category"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20161021175041) do
     t.datetime "updated_at",    null: false
     t.integer  "prod_id"
     t.string   "dow"
-    t.string   "ordsts_txt"
   end
 
   create_table "maintadmins", force: :cascade do |t|

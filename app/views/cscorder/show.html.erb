@@ -1,82 +1,115 @@
 <%= render 'layouts/header' %>
 
-<% if flash[:notice] %>
-  <p class="p_alert1"><%= flash[:notice] %></p>
-<% end %>
+<style>
+    p.p1{ 
+        position: relative;
+        top: -45px;
+        left: 300px;
+        width: 300px;
+        height: 5px;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+        }
+</style>
+
 
 <!--Actions bar -->
 <table class="table_actionbar">
   <col style="width:5">
   <col style="width:10">
-  <col style="width:15"
+  <col style="width:15">
   <tr>
     <td><strong>Actions:</strong></td>
-    <td><%= button_to "Back", user_path, params: {id: params[:id],storeid: params[:storeid],storename: params[:storename]}, :method => :get%>   </td>
-    <td><%= button_to "Submit" %>   </td>
+    <td><%= button_to "Back", user_path, params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :get%>   </td>
+    <td><%= button_to "Submit", cscorder_path, params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :put, :disabled => @flg %> </td>
   </tr>
 </table>
 
-<!-- Header -->  
-<br>
-<p class="p1">Store: <%= params[:storeid]%>, <%= params[:storename] %></p>
-<p class="p1">Menu for: <%= @t2.mcode %>, <%= @t2.dte.strftime("%m/%d/%y") %></p>
+<p class="p1"> Store: <%= session[:storeid]%>, <%= session[:storename] %></p>
 <br>
 
-
-<!-- Menu items -->
-<table class="table2">
-    
-    <col style="width:23%">
-    <col style="width:10%">
-    <col style="width:25%">
-    <col style="width:7%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    <col style="width:5%">
-    
-    <tr class="tableheader1">
-        <th>Category</th>
-        <th>Item</th>
-        <th>Description</th>
-        <th>Sell Prc</th>
-        <th>UOFM</th>
-        <th>H_Ord</th>
-        <th>Avg Ord</th>
-        <th>Avg Wst</th>
-        <th>Sug Ord</th>
-        <th>Qty Ord</th>
-        <th>Change To</th>
+<!-- Header -->
+<table class= "table3">
+    <col style="width:50">
+    <col style="width:50">
+    <tr class="table3">
+       <td>Menu: <%= @t2.mcode %></p></td>
+       <td>Status: <%= set_ordsts_txt(@t2.ordsts) %></p></td>
+    </tr>
         
-        
-    </tr>  
-    
-    <% @t.each do |tbl| %>
-        <tr>
-            <td><%= tbl.category %></td>
-            <td><%= tbl.itemnmbr %></td>
-            <td><%= tbl.itemdesc %></td>
-            <td><%= tbl.selprc %></td>
-            <td><%= tbl.uofm %></td>
-            <td><%= tbl.h_ord %></td>
-            <td><%= tbl.h_avgord %></td>
-            <td><%= tbl.h_avgwst %></td>
-            <td><%= tbl.h_sugord %></td>
-            <td><%= tbl.qtyord %></td>
-            <td><%= text_field_tag(:newqty,tbl.qtyord, size: 3, maxlength: 3) %></td>
-            <td><%=button_to "Update",cscorder_path,params:{qty: :newqty, itemnmbr: tbl.itemnmbr, pk: tbl.id}, :method => :put %></td>
-            <td><%= hidden_field_tag("pk",tbl.id,) %></td>
-        </tr>
-    <% end %>
-
+    </tr class="table3">
+        <td>Wh Delivery Date: <%= @t2.dte.strftime("%m/%d/%y") %></p></td>
+        <td>Submitted: <%if @t2.submitted_dte.nil? %>
+                       <% else %>
+                         <%= format_datetime_as_EST(@t2.submitted_dte) %>, <%= @t2.submitted_by %>
+                       <% end %>
+                       </p></td>
+    </tr>
 </table>
 
+<!--
+<%= form_tag(cscorder_path, method: "put") do %>
+-->
 
 
+    <!-- Menu items -->
+    <table class="table2">
+        
+        <col style="width:23%">
+        <col style="width:10%">
+        <col style="width:25%">
+        <col style="width:7%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
+        
+        <tr class="tableheader1">
+            <th>Category</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Sell Prc</th>
+            <th>UOFM</th>
+            <th>Prev Ords</th>
+            <th>Avg Ord</th>
+            <th>Avg Wst</th>
+            <th>Sug Ord</th>
+            <th>Qty Ord</th>
+            <th>Change To</th>
+            
+            
+        </tr>  
+        
+        <% @t.each do |tbl| %>
+            <tr>
+                <td><%= tbl.category %></td>
+                <td><%= tbl.itemnmbr %></td>
+                <td><%= tbl.itemdesc %></td>
+                <td><%= number_with_precision(tbl.selprc,precision:2) %></td>
+                <td><%= tbl.uofm %></td>
+                <td><%= tbl.h_ord %></td>
+                <td><%= tbl.h_avgord %></td>
+                <td><%= tbl.h_avgwst %></td>
+                <td><%= tbl.h_sugord %></td>
+                <td><%= tbl.qtyord %></td>
+                <td><%= text_field_tag("newqty",nil,{size: 3, maxlength: 3}) %></td>
+                <td><%=button_to "Change",edit_cscorderli_path,params:{itemnmbr: tbl.itemnmbr, pk: tbl.id}, :method => :get, :disabled => @flg %></td>
+                <td><%= hidden_field_tag("pk",tbl.id,) %></td>
+            </tr>
+        <% end %>
+        
+    </table>
+
+<!--
+    <%= submit_tag("Submit") %>
+<% end %>    
+-->
 
 
 

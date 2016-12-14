@@ -4,6 +4,7 @@
 <table class="table_actionbar">
   <col style="width:5">
   <col style="width:10">
+  <col style="width:15">
   <tr>
     <td><strong>Actions:</strong></td>
     <td><%=button_to "Back", user_index_path, :method => :get %></td>
@@ -11,7 +12,7 @@
 </table>
 
 <!--Header -->
-<p class="p1">Menus for Store: <%= params[:storeid] %>, <%= params[:storename] %></p>
+<p class="p1">Menus for Store: <%= session[:storeid] %>, <%= session[:storename] %></p>
 
 
 <!-- Order data -->
@@ -40,11 +41,10 @@
             <td><%=tbl.mcode%></td>
             <td><%=tbl.dte.strftime("%m/%d/%y")%></td>
             <td><%=tbl.dow%></td>
-            <td><%=tbl.ordsts_txt%></td>
-            <td><%=tbl.submitted_dte%></td>
+            <td><%=set_ordsts_txt(tbl.ordsts)%></td>
+            <td><%=format_datetime_as_EST(tbl.submitted_dte)%></td>
             <td><%=tbl.submitted_by%></td>
-            <td><%= link_to "View", cscorder_path(id: tbl.id, storeid: params[:storeid],
-                                                  storename: params[:storename])%> </td>
+            <td><%= link_to "View", cscorder_path(id: tbl.id)%> </td>
         </tr>
         <% end %>
         

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
  resources :admin
  resources :user
  resources :cscorder
+ resources :cscorderli
  
  
   # The priority is based upon order of creation: first created -> highest priority.
