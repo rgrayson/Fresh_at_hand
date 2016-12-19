@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213201535) do
+ActiveRecord::Schema.define(version: 20161214174054) do
 
   create_table "cscorderlis", force: :cascade do |t|
     t.string   "category"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161213201535) do
     t.integer  "cscorder_id"
     t.integer  "mrktc_only"
     t.string   "h_range"
+    t.integer  "qtynew"
   end
 
   create_table "cscorders", force: :cascade do |t|

@@ -66,15 +66,14 @@
     font-family: arial, sans-serif;
     font-weight: bold;
     width: 80%;   
-    border: none;
     text-align: left;
-    padding: 1px;
+    padding: 5px;
     }        
 
 .table3 tr{
     border: none;
     text-align: left;
-    padding: 1px;
+    padding: 5px;
     height: 1px;
     }           
 
@@ -93,5 +92,6 @@
     border: 3px solid #dddddd;
     border-color: blue;
     text-align: left;
-    padding: 1px;
+    padding: 5px;
     }        
+

@@ -1,91 +1,67 @@
 <%= render 'layouts/header' %>
-
 <style>
-    p.p1{ 
-        position: relative;
-        top: -45px;
-        left: 300px;
-        width: 300px;
-        height: 5px;
-        border: none;
+    p.storename{ 
+        position: absolute;
+        top: 80px;
+        left: 350px;
+        width: 550px;
+        height: 25px;
+        padding: 0px;
         font-weight: bold;
         font-size: 20px;
+        text-align: right;
         }
 </style>
 
+<p class="storename">Store: <%= session[:storeid]%> <%= session[:storename] %></p>
 
 <!--Actions bar -->
 <table class="table_actionbar">
-  <col style="width:5">
-  <col style="width:10">
-  <col style="width:15">
   <tr>
-    <td><strong>Actions:</strong></td>
-    <td><%= button_to "Back", user_path, params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :get%>   </td>
-    <td><%= button_to "Submit", cscorder_path, params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :put, :disabled => @flg %> </td>
-  </tr>
+    <td style="width:33%"><strong>Actions:</strong></td>
+    <td style="width:33%"><%= button_to "Back", {controller:"user", action:"show"}, {params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :get, style: "width:100%"} %></td>
+    <td style="width:33%"><%= button_to "Submit", {controller:"cscorder", action:"update"}, {params: {id: params[:id],storeid: session[:storeid],storename: session[:storename]}, :method => :put, :disabled => @flg, style: "width:100%"}%></td>
+   </tr>
 </table>
-
-<p class="p1"> Store: <%= session[:storeid]%>, <%= session[:storename] %></p>
-<br>
 
 <!-- Header -->
 <table class= "table3">
-    <col style="width:50">
-    <col style="width:50">
+    <col style="width:30%">
+    <col style="width:50%">
     <tr class="table3">
-       <td>Menu: <%= @t2.mcode %></p></td>
-       <td>Status: <%= set_ordsts_txt(@t2.ordsts) %></p></td>
+       <td>Menu: <%= @t2.mcode %></td>
+       <td>Status: <%= set_ordsts_txt(@t2.ordsts) %></td> 
     </tr>
         
     </tr class="table3">
-        <td>Wh Delivery Date: <%= @t2.dte.strftime("%m/%d/%y") %></p></td>
-        <td>Submitted: <%if @t2.submitted_dte.nil? %>
+       <td>Wh Delivery Date: <%= @t2.dte.strftime("%m/%d/%y") %></td>
+       <td>Submitted: <%if @t2.submitted_dte.nil? %>
                        <% else %>
-                         <%= format_datetime_as_EST(@t2.submitted_dte) %>, <%= @t2.submitted_by %>
+                           <%= format_datetime_as_EST(@t2.submitted_dte) %>, <%= @t2.submitted_by %>
                        <% end %>
-                       </p></td>
+                        </td>
     </tr>
 </table>
-
-<!--
-<%= form_tag(cscorder_path, method: "put") do %>
--->
 
 
     <!-- Menu items -->
     <table class="table2">
         
-        <col style="width:23%">
-        <col style="width:10%">
-        <col style="width:25%">
-        <col style="width:7%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        
         <tr class="tableheader1">
-            <th>Category</th>
-            <th>Item</th>
-            <th>Description</th>
-            <th>Sell Prc</th>
-            <th>UOFM</th>
-            <th>Prev Ords</th>
-            <th>Avg Ord</th>
-            <th>Avg Wst</th>
-            <th>Sug Ord</th>
-            <th>Qty Ord</th>
-            <th>Change To</th>
-            
-            
+            <th style="width:23%">Category</th>
+            <th style="width:10%,">Item</th>
+            <th style="width:25%">Description</th>
+            <th style="width:7%">Sell Prc</th>
+            <th style="width:5%">UOFM</th>
+            <th style="width:5%">Prev Ords</th>
+            <th style="width:5%">Avg Ord</th>
+            <th style="width:5%">Avg Wst</th>
+            <th style="width:5%">Sug Ord</th>
+            <th style="width:5%">Qty Ord</th>
+            <th style="width:5%">Change To</th>
+            <th style="width:0%"></th>
         </tr>  
-        
+    
         <% @t.each do |tbl| %>
             <tr>
                 <td><%= tbl.category %></td>
@@ -98,18 +74,20 @@
                 <td><%= tbl.h_avgwst %></td>
                 <td><%= tbl.h_sugord %></td>
                 <td><%= tbl.qtyord %></td>
-                <td><%= text_field_tag("newqty",nil,{size: 3, maxlength: 3}) %></td>
-                <td><%=button_to "Change",edit_cscorderli_path,params:{itemnmbr: tbl.itemnmbr, pk: tbl.id}, :method => :get, :disabled => @flg %></td>
+                <div id="fx">
+                    <td><%= text_field_tag(:amount,nil,{size: 3, maxlength: 3}) %></td>
+                </div>    
+                <td><%= button_to "Change",{controller:"cscorderli", action:"edit"},params:{itemnmbr: tbl.itemnmbr, pk: tbl.id, qtynew2: "amount"},:method => :get, :disabled => @flg %></td>
                 <td><%= hidden_field_tag("pk",tbl.id,) %></td>
             </tr>
         <% end %>
-        
-    </table>
 
-<!--
-    <%= submit_tag("Submit") %>
-<% end %>    
--->
+</table>
+
+
+
+
+
 
 
 

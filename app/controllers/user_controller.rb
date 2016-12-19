@@ -20,6 +20,7 @@ def show
     
  else
      #no records redirect back
+     flash[:notice]="Error: No Orders for Store!!"
      redirect_to(:back)
  end        
 end

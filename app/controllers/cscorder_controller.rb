@@ -18,7 +18,7 @@ def show
     else
         #no records??
         flash[:notice]="Error: No items for menu!!"
-        @t2=Cscorder.where("id=?",0)
+        redirect_to :back and return
     end
     
 end    

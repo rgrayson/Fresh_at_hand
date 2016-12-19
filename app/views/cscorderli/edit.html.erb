@@ -1,6 +1,6 @@
 <%= render 'layouts/header' %>
 
-<p class="p1">Update Qty for item</p>
+<p class="p1">Update Qty for item: </p>
 
 <%= form_tag cscorderli_path,:method => "put" do %>
     
@@ -16,4 +16,6 @@
     <% end %>
     
 <% end %>
+
+<br>
 <%= button_to "Back",cscorder_path, :method => "get" %>

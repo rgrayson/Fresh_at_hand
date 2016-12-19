@@ -2,12 +2,10 @@
 
 <!--Actions bar -->
 <table class="table_actionbar">
-  <col style="width:5">
-  <col style="width:10">
-  <col style="width:15">
   <tr>
-    <td><strong>Actions:</strong></td>
-    <td><%=button_to "Back", user_index_path, :method => :get %></td>
+    <td style="width:33%"><strong>Actions:</strong></td>
+    <td style="width:33%"><%=button_to "Back", user_index_path, {:method => :get, style: "width:100%"} %></td>
+    <td style="width:33%"></td>
   </tr>
 </table>
 
