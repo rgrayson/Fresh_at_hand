@@ -1,0 +1,50 @@
+
+<%= link_to("generate token", {controller:"test_controller", action:"test_response"}, {method:"put", id:0}) %>
+
+<!-- Menu items -->
+<table class="table2">
+       <tr class="tableheader1">
+            <th style="width:23%">Category</th>
+            <th style="width:10%,">Item</th>
+            <th style="width:25%">Description</th>
+            <th style="width:7%">Sell Prc</th>
+            <th style="width:5%">UOFM</th>
+            <th style="width:5%">Prev Ords</th>
+            <th style="width:5%">Avg Ord</th>
+            <th style="width:5%">Avg Wst</th>
+            <th style="width:5%">Sug Ord</th>
+            <th style="width:5%">Qty Ord</th>
+            <th style="width:5%">Change To</th>
+            <th style="width:0%"></th>
+        </tr>  
+        
+       
+        <% @t.each do |tbl| %>
+            
+             <%= form_tag({controller:"test_controller", action:"test_response"}, {method:"put", id:0}) do %>
+                <tr>
+                    <td><%= tbl.category %></td>
+                    <td><%= tbl.itemnmbr %></td>
+                    <td><%= tbl.itemdesc %></td>
+                    <td><%= number_with_precision(tbl.selprc,precision:2) %></td>
+                    <td><%= tbl.uofm %></td>
+                    <td><%= tbl.h_ord %></td>
+                    <td><%= tbl.h_avgord %></td>
+                    <td><%= tbl.h_avgwst %></td>
+                    <td><%= tbl.h_sugord %></td>
+                    <td><%= tbl.qtyord %></td>
+                    <td><%= text_field_tag('newqty',nil,{size: 3, maxlength: 3}) %></td>
+                    <td><%= submit_tag("Change",:disabled => @flg) %></td>
+                    <td><%= hidden_field_tag("pk",tbl.id,) %></td>
+                </tr>
+            <% end %>
+        
+        <% end %>
+
+</table>
+
+
+
+
+
+                    

@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
 def index
-   @t=Mrktcstore.joins("INNER JOIN storeperms on storeperms.storeid = mrktcstores.storeid").where("user=?",session[:u])
+   @t=Mrktcstore.joins("INNER JOIN storeperms on storeperms.storeid = mrktcstores.storeid").where("login_user=?",session[:u])
 end    
 
 

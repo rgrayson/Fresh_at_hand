@@ -1,11 +1,27 @@
 Rails.application.routes.draw do
  
  root "startup#index"
- get 'startup/login' =>'startup#login'
+ 
+ #named routes
+  #test
+  get "test_controler/test" => 'test_controller#test'
+  get "test_controler/test_response" => 'test_controller#test_response'
+  put "test_controler/test_response" => 'test_controller#test_response'
+  
+  get "test_controller/refresh_orderli" => "cscorder#create"
+  
+  
+  
+  
+  get 'startup/login' =>'startup#login'
+ 
+ 
+ #controller routes (CRUD actions only)
  resources :admin
  resources :user
  resources :cscorder
  resources :cscorderli
+ 
  
  
   # The priority is based upon order of creation: first created -> highest priority.

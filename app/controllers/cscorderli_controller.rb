@@ -12,28 +12,35 @@ def edit
        flash[:notice]="ERROR: Cannot locate item in menu!!" 
        redirect_to cscorder_path(id: params[:id]) and return
     end
- 
-    
+
 end
+
 
 def update
 
+   #render html: params and return
+
     #Updates qtyord for Cscorderli
     #params[:id] is order id not orderli id.  Why???
-    @t=Cscorderli.find(params[:line_id])
-    @t.qtyord= params[:newqty]
-    if @t.save
-        #sucess
+    @t=Cscorderli.where("id=?",params[:id])
+    if @t.any?
+        @t.each do |t|
+            t.qtyord= params[:newqty]
+            if t.save
+                #sucess
+            else
+                #error
+                flash[:notice]="ERROR..Qty must be between 0 and 100."
+            end
+        end
     else
-        #error
-        flash[:notice]="ERROR..Qty must be between 0 and 100."
-    end    
+        flash[:notice]="ERROR..Cannot find record to save."    
+    end
     
-    redirect_to cscorder_path, :method => "get" and return
+   #refresh/render form with update
+   redirect_to user_path(storeid: session[:storeid]) 
    
 end 
-
-
 
 
 end

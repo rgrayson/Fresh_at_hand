@@ -1,13 +1,18 @@
 class CscorderController < ApplicationController
 
-def show
+def create
+    
+    #render html: params and return
+    
+    #needed to be create action only to generate auth token !!!!
+    # does not do this if #show. will actually render "update.htlm.erb"
     
     #show menu line items
     
     #button disable flag
     @flg=false
     
-    @t=Cscorderli.where("cscorder_id=?",params[:id])
+    @t=Cscorderli.where("cscorder_id=?",params[:id]).order("category,itemdesc")
     if @t.any?
         #Ok
         #set @t2 for order status related
@@ -22,6 +27,7 @@ def show
     end
     
 end    
+
 
 def update
    

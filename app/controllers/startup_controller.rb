@@ -36,6 +36,8 @@ def login
     u=params[:username]
     p=params[:password]
     lt=params[:ltyp]
+   
+   #render html: params and return
     
    #check for missing controls/values
       @e=0
@@ -69,7 +71,7 @@ def login
   if lt=="User"
       #user login, look in Storeperm model for user/pw
       #@t becomes list of allowable stores for user/pw
-      @t=Storeperm.where("user=? and pw=?",u,p)
+      @t=Storeperm.where("login_user=? and pw=?",u,p)
       if @t.any?
           #found
           

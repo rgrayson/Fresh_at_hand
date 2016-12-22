@@ -1,5 +1,7 @@
 <%= render 'layouts/header' %>
 
+<%=link_to "TEST",{controller:"test_controller",action:"test"}, {method:"get"} %>
+
 <!--Actions bar -->
 <table class="table_actionbar">
   <tr>
@@ -42,7 +44,7 @@
             <td><%=set_ordsts_txt(tbl.ordsts)%></td>
             <td><%=format_datetime_as_EST(tbl.submitted_dte)%></td>
             <td><%=tbl.submitted_by%></td>
-            <td><%= link_to "View", cscorder_path(id: tbl.id)%> </td>
+            <td><%= link_to "View", cscorder_index_path(id: tbl.id), {method:"post"} %> </td>
         </tr>
         <% end %>
         

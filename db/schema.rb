@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161214174054) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cscorderlis", force: :cascade do |t|
     t.string   "category"
     t.string   "itemnmbr"
