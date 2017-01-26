@@ -49,27 +49,30 @@
        
     <table class="table2">
        <tr class="tableheader1">
-            <th style="width:23%">Category</th>
+            <th style="width:20%">Category</th>
             <th style="width:10%,">Item</th>
             <th style="width:25%">Description</th>
-            <th style="width:7%">Sell Prc</th>
-            <th style="width:5%">UOFM</th>
+            <th style="width:6%">Sell Prc</th>
+            <th style="width:4%">UofM</th>
             <th style="width:5%">Prev Ords</th>
             <th style="width:5%">Avg Ord</th>
             <th style="width:5%">Avg Wst</th>
             <th style="width:5%">Sug Ord</th>
             <th style="width:5%">Qty Ord</th>
             <th style="width:5%">Change To</th>
+            <th style="width:5%"></th>
+            <th style="width:0%"></th>
             <th style="width:0%"></th>
         </tr>  
         
        
         <% @t.each do |tbl| %>
             
-            <%= form_tag({controller:"cscorderli", action:"update", id: tbl.id}, {method:"put",}) do %>
+            <%= form_tag({controller:"cscorderli", action:"update", id: tbl.id, anchor1: tbl.itemnmbr}, {method:"put",}) do %>
                 <tr>
+                    
                     <td><%= tbl.category %></td>
-                    <td><%= tbl.itemnmbr %></td>
+                    <td><a name= <%= tbl.itemnmbr%>><<%tbl.itemnmbr%>></a></td>
                     <td><%= tbl.itemdesc %></td>
                     <td><%= number_with_precision(tbl.selprc,precision:2) %></td>
                     <td><%= tbl.uofm %></td>
@@ -88,6 +91,8 @@
         <% end %>
 
 </table>
+
+
 
 
 

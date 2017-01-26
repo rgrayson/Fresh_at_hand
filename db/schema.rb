@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214174054) do
+ActiveRecord::Schema.define(version: 20170125141423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20161214174054) do
     t.integer  "cscorder_id"
     t.integer  "mrktc_only"
     t.string   "h_range"
-    t.integer  "qtynew"
   end
 
   create_table "cscorders", force: :cascade do |t|
@@ -69,7 +68,7 @@ ActiveRecord::Schema.define(version: 20161214174054) do
 
   create_table "storeperms", force: :cascade do |t|
     t.integer  "storeid"
-    t.string   "user"
+    t.string   "login_user"
     t.string   "pw"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

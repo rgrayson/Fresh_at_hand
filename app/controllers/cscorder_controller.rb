@@ -1,11 +1,11 @@
 class CscorderController < ApplicationController
 
-def create
+def edit
     
     #render html: params and return
     
-    #needed to be create action only to generate auth token !!!!
-    # does not do this if #show. will actually render "update.htlm.erb"
+    #needed to be edit action only to generate auth token !!!!
+    # does not do this if #show. 
     
     #show menu line items
     
@@ -25,6 +25,9 @@ def create
         flash[:notice]="Error: No items for menu!!"
         redirect_to :back and return
     end
+    
+    #render edit.htmt.erb
+    
     
 end    
 

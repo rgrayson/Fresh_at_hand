@@ -36,10 +36,12 @@ def update
     else
         flash[:notice]="ERROR..Cannot find record to save."    
     end
+   
+   
     
    #refresh/render form with update
-   redirect_to user_path(storeid: session[:storeid]) 
-   
+   redirect_to edit_cscorder_path(id: params[:cscorder_id], anchor: params[:a1]), {method:"get"} 
+  
 end 
 
 
