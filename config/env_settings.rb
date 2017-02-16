@@ -1,7 +1,7 @@
-#Used for account settings, passwords, api settings etc.
+#Used for account settings, passwords, api keys/values etc.
 #Sets the following environment variables
 #Be sure to add this file to .gitignore so it will NOT
-#be pushed to Github (security)
+#be pushed to Github (for security)
 
 if Rails.env.production?
    ENV['DB_USERNAME']='aviuser'

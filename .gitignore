@@ -18,4 +18,4 @@
 
 
 #ignore ENV VARIABLES
-/config/local_env.rb
+/config/env_settings.rb
