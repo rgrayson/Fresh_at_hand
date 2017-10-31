@@ -3,6 +3,23 @@
 #   gem 'pg'
 #
 
+# original
+# default: &default
+#   adapter: sqlite3
+#   pool: 5
+#   timeout: 5000
+# development:
+#   <<: *default
+#   database: db/development.sqlite3
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
+
+#POSTGRES
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -10,25 +27,25 @@ default: &default
   pool: 50
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  
-  #username: aviuser
-  #password: avitest
-
 development:
   <<: *default
   database: ff_orders_dev
-
-  
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: ff_orders_test
-  
-  
 production:
   <<: *default
-  database: BRWeb
+  host: localhost
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+
+# webserver, this does not work
+# adapter: postgresql
+# encoding: unicode
+# pool: 50
+# webaddress: 'brapp.avifoodsystems.com'
+# host: 'pg-sql-svr-1'
+# port: 5432
+# database: 'BRWeb'
+# username: 'rgrayson'
+# password: ''

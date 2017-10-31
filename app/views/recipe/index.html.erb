@@ -1,0 +1,33 @@
+<%= render 'layouts/header' %>
+
+<table class="table2">
+  
+  <col style="width:10%">
+  <col style="width:50%">
+  <col style="width:10%">
+  <col style="width:10%">
+  <col style="width:10%">
+  <col style="width:10%">
+  
+  <tr class="tableheader1">
+    <th>ID</th>
+    <th>DESCRIPTION</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  <% @t.each do |tbl| %>
+    <tr>
+      <td><%=tbl.rid %></td>
+      <td><%=tbl.rid_desc %></td>
+      <td><%= button_to 'Print Labels', recipe_path(id: tbl.rid)  %></td>
+      <td><%= button_to 'Nutritionals', recipe_path(id: tbl.rid)  %></td>
+      <td><%= button_to 'Procedure', recipe_path(id: tbl.rid)  %></td>
+      <td><%= button_to 'Other', recipe_path(id: tbl.rid)  %></td>
+    </tr>
+  <% end %>
+  
+  
+</table>

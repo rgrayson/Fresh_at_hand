@@ -26,6 +26,12 @@ module Workspace
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
+    
+    #Load env_settings (ENV) variables....
+    #env_settings.rb file is part of .gitignore for security
+    file1 = File.join(Rails.root, 'config', 'env_settings.rb')
+    load(file1) if File.exists?(file1)
+    
    
   end
 end

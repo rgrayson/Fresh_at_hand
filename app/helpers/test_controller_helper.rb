@@ -1,2 +1,0 @@
-module TestControllerHelper
-end

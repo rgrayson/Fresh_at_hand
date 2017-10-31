@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  storeid: 1
-  mcode: MyString
-  dte: 2016-09-26
+  rid: 1
+  rid_typ: MyString
+  rid_desc: MyString
 
 two:
-  storeid: 1
-  mcode: MyString
-  dte: 2016-09-26
+  rid: 1
+  rid_typ: MyString
+  rid_desc: MyString

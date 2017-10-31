@@ -11,68 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125141423) do
+ActiveRecord::Schema.define(version: 20171031134421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cscorderlis", force: :cascade do |t|
-    t.string   "category"
-    t.string   "itemnmbr"
-    t.string   "itemdesc"
-    t.decimal  "selprc"
-    t.string   "uofm"
-    t.integer  "qtyord"
-    t.string   "h_ord"
-    t.string   "h_avgord"
-    t.string   "h_avgwst"
-    t.string   "h_sugord"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "cscorder_id"
-    t.integer  "mrktc_only"
-    t.string   "h_range"
-  end
-
-  create_table "cscorders", force: :cascade do |t|
-    t.integer  "storeid"
-    t.string   "ordsts"
-    t.datetime "submitted_dte"
-    t.string   "submitted_by"
-    t.string   "mcode"
-    t.date     "dte"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "prod_id"
-    t.string   "dow"
-  end
-
-  create_table "maintadmins", force: :cascade do |t|
-    t.string   "user"
-    t.string   "pw"
+  create_table "recipes", force: :cascade do |t|
+    t.integer  "rid"
+    t.string   "rid_typ"
+    t.string   "rid_desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "mrktcstores", force: :cascade do |t|
-    t.integer  "storeid"
-    t.string   "storename"
-    t.string   "locncode"
-    t.string   "fld"
-    t.string   "flddesc"
-    t.integer  "sub"
-    t.string   "subdesc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "storeperms", force: :cascade do |t|
-    t.integer  "storeid"
-    t.string   "login_user"
-    t.string   "pw"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "storename"
+    t.string   "ser_size"
+    t.string   "calories"
   end
 
 end

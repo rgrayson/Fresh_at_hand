@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MrktcstoreTest < ActiveSupport::TestCase
+class RecipeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
