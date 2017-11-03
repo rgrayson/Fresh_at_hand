@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rid: 1
+  rid_prod: 1
+  rid_proc_desc: MyString
+
+two:
+  rid: 1
+  rid_prod: 1
+  rid_proc_desc: MyString

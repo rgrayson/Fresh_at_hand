@@ -1,0 +1,29 @@
+<!--recipe header -->
+
+<style>
+
+.table{
+    width: 100%;
+    }
+
+.recipeheader {
+    border-collapse:collapse;
+    padding:0px;
+    background-color: yellow;
+    color: black;
+    height: 30px;
+    font-weight: bold;
+    font-size:large;
+    }
+</style>
+
+<% @t.each do |tbl| %>
+  <table class="table">
+    <tr class="recipeheader">
+      <td style="text-align:left;width:15%">Recipe: <%=tbl.rid %></td>
+      <td style="text-align:center;width:50%"><%=tbl.rid_desc %></td>
+      <td style="text-align:right;width:30%">Suggested Sell Price: <%=tbl.sel_prc %></td>
+    </tr>
+  <% end %>
+</table>
+

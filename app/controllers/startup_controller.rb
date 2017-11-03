@@ -44,7 +44,15 @@ def login
       
   #validate login
   
-  redirect_to recipe_index_path 
+  #set session variables
+   session[:u]=u   
+  
+   t=Appconfig.where("pk=1")
+   t.each do |tbl|
+     session[:last_update]=tbl.last_update
+   end
+   
+  redirect_to recipe_index_path
   
   
 end    

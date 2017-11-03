@@ -1,9 +1,10 @@
 <style>
     .tx {text-align: center;}
     .tr{border-collapse:collapse; padding:0px;}
-    .tc1{width:2%; text-align:left;}
-    .tc2{width:10%; font-weight:bold; font-size:xx-large;}
-    .tc3{width:5%; font-size:x-large;}    
+    .tc1{width:10%; text-align:left;}
+    .tc2{width:50%; font-weight:bold; font-size:xx-large;}
+    .tc3{width:5%; font-size:large;} 
+    .tc4{width:5%; font-size:large;}  
 </style>
 
 
@@ -11,6 +12,7 @@
     <tr class="tr">
         <td class="tc1"><%= image_tag("AVI_Logo.jpg", alt: "avi logo", height: "60", width: "125") %></td>
         <td class="tc2">Fresh at Hand Recipe Viewer</td>
+        <td class="tc4"><%=link_to "Home", recipe_index_path, :method => :get %></td>
         <td class="tc3"><%=link_to "Logout", root_path, :method => :get %></td>
 </table>
    

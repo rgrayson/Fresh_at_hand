@@ -16,10 +16,7 @@
             <td>Password:</td>
             <td><%= password_field_tag(:password,params[:p]) %></td>
         </tr>
-        <tr>
-             <td>Login As:</td>
-             <td><%= select_tag "ltyp", options_for_select([ "User", "Admin" ], params[:ltyp]) %></td>
-        </tr>
+        
     </table>
     
      <br>

@@ -1,0 +1,185 @@
+<style>
+#t1{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+    padding: 0px; 
+    }
+
+#t1 td, #tableprint tr{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;        
+    } 
+
+#t1 th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;   
+    background-color: black;
+    color: white;            
+    }    
+
+    #t1 tr:nth-child(even){background-color: #f2f2f2;}
+
+    #t1 tr:hover {background-color: #f5cba7;}
+
+#t2{
+    font-family: arial, sans-serif;
+    width: 40%;   
+    border: 3px solid #dddddd;
+    border-color: blue;
+    text-align: left;
+    padding: 0px;
+    }
+
+#p1 {
+   border-collapse: collapse;
+   font-size: large;
+   font-weight: bold;
+   padding : 0;
+   margin : 0;
+   line-height : 20px;
+   text-align:left;
+    }
+
+</style>
+
+<!-- render partials -->
+<%= render 'layouts/header2' %>
+<%= render 'layouts/header_recipe' %>
+
+<p>Error:<%= params[:emsg] %></p>
+
+
+<!-- misc text -->
+<p></p>
+<p id="p1">Directions:</p>
+<p id="p1">Edit/Change "Use for Label" setting as needed for Custom Label. Then enter # copies and click PRINT</p>
+<p></p>
+
+<!-- Begin Form tag group -->
+<%= form_tag recipe_path,:method => "put" do %>
+
+
+    <!-- set hidden fields, these are needed for controler#actio [params] -->
+    <% @t.each do |tbl| %>
+         <%= hidden_field_tag("rid",tbl.rid) %>
+         <%= hidden_field_tag("scancode",tbl.scan_code) %>
+    <% end %>
+    
+    <!-- # COPIES/Print -->
+    <table id="t2">
+        <tr>
+            <td><p>Copies:</p></td>
+            <td><%= text_field_tag("copies","1",{maxlength:2, size:5}) %></td>
+            <td><%= submit_tag("Print", :class => "btn_med") %></td></td>
+        </tr>
+    </table>
+
+
+    <!-- fill form with editable settings -->
+    <table id="t1">  
+      <col style="width:10%">
+      <col style="width:10%">
+      <col style="width:10%">
+      <tr>
+          <th>Setting</th>
+          <th>Default Value</th>
+          <th>Use for Label</th>
+      </tr>    
+        
+      <% @t.each do |tbl| %>
+        
+        <tr>
+            <td>Label Name</td>
+            <td><%= tbl.rid_desc %></td>
+            <td><%= text_field_tag("lblname",tbl.rid_desc,{maxlength:25, size:25}) %></td> 
+        </tr>
+        
+        <tr>
+            <td>UPC / Scan Code</td>
+            <td><%= tbl.scan_code %></td>
+            <td><%= tbl.scan_code %></td>
+        </tr>
+        
+        <tr>
+            <td>Recommended Selling Price</td>
+            <td><%= tbl.sel_prc %></td>
+            <td><%= text_field_tag("selprc",tbl.sel_prc,{maxlength:25, size:25}) %></td> 
+        </tr>
+      
+        <tr>
+            <td>Half Portion</td>
+            <td>No</td>
+            <td><%= select_tag("halfportion",options_for_select(["No","Yes"],"No")) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Special Notes</td>
+            <td></td>
+            <td><%= text_field_tag("snotes",nil,{maxlength:25, size:25}) %></td> 
+        </tr>   
+        
+        <tr>
+            <td>Allergen-Egg</td>
+            <td><%= tbl.alg_egg %></td>
+            <td><%= select_tag("aegg",options_for_select(["","Y"],tbl.alg_egg)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-ShellFish</td>
+            <td><%= tbl.alg_shellfish %></td>
+            <td><%= select_tag("ashellfish",options_for_select(["","Y"],tbl.alg_shellfish)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Fish</td>
+            <td><%= tbl.alg_fish %></td>
+            <td><%= select_tag("afish",options_for_select(["","Y"],tbl.alg_fish)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Soy</td>
+            <td><%= tbl.alg_soy %></td>
+            <td><%= select_tag("asoy",options_for_select(["","Y"],tbl.alg_soy)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Milk</td>
+            <td><%= tbl.alg_milk %></td>
+            <td><%= select_tag("amilk",options_for_select(["","Y"],tbl.alg_milk)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Tree Nuts</td>
+            <td><%= tbl.alg_treenuts %></td>
+            <td><%= select_tag("atreenuts",options_for_select(["","Y"],tbl.alg_treenuts)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Peanuts</td>
+            <td><%= tbl.alg_peanuts %></td>
+            <td><%= select_tag("apeanuts",options_for_select(["","Y"],tbl.alg_peanuts)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Wheat</td>
+            <td><%= tbl.alg_wheat %></td>
+            <td><%= select_tag("awheat",options_for_select(["","Y"],tbl.alg_wheat)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Ingredients</td>
+            <td><%= tbl.ingredient_list %></td>
+            <td><%= text_area_tag("ingrlist",tbl.ingredient_list,size: "25x15") %></td> 
+        </tr>
+        
+        
+      <% end %>
+    
+    </table>  
+
+
+<% end %>

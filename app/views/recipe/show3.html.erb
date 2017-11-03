@@ -1,0 +1,95 @@
+<%= render 'layouts/header2' %>
+<%= render 'layouts/header_recipe' %>
+
+
+<!--Nutritionals -->
+<p class="sectionheader">Nutritionals:</p>
+
+<table class="table2">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  
+  <tr class="tableheader1">
+    <th>Serving Size</th>
+    <th>Calories</th>
+    <th>Total Fat</th>
+    <th>Calories from Fat</th>
+    <th>Saturated fat</th>
+    <th>Recipe Yield</th>
+    <th>Batch Yield</th>
+    <th>Shelf Life</th>
+  </tr>
+  
+  <% @t.each do |tbl| %>
+    <tr>
+      <td><%=tbl.ser_size %></td>
+      <td><%=tbl.calories %></td>
+      <td><%=tbl.tfat %></td>
+      <td><%=tbl.cfrmfat %></td>
+      <td><%=tbl.satfat %></td>
+      <td><%=tbl.yld  %></td>
+      <td><%=tbl.batch_yld %></td>
+      <td><%=tbl.shelf_life %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<!--Allergens -->
+<p class="sectionheader">Allergens: </p>  
+<table class="table2">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+  <col style="width:5%">
+ 
+  
+  <tr class="tableheader1">
+    <th>Egg</th>
+    <th>Shellfish</th>
+    <th>Fish</th>
+    <th>Soy</th>
+    <th>Milk</th>
+    <th>Tree Nuts</th>
+    <th>Peanuts</th>
+    <th>Wheat</th>
+  </tr>
+  
+  <% @t.each do |tbl| %>
+    <tr>
+      <td><%=tbl.alg_egg %></td>
+      <td><%=tbl.alg_shellfish %></td>
+      <td><%=tbl.alg_fish %></td>
+      <td><%=tbl.alg_soy  %></td>
+      <td><%=tbl.alg_milk %></td>
+      <td><%=tbl.alg_treenuts %></td>
+      <td><%=tbl.alg_peanuts %></td>
+      <td><%=tbl.alg_wheat %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<!--Ingredients List -->
+<p class="sectionheader">Ingredients List: </p>  
+<table class="table2">
+  <col style="width:100%">
+ 
+  <% @t.each do |tbl| %>
+    <tr>
+      <td><%=tbl.ingredient_list %></td>
+    </tr>
+  <% end %>
+</table>
+
+
