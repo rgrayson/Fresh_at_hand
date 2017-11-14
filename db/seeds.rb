@@ -9,7 +9,7 @@
 
 #recipe
 Recipe.destroy_all
-Recipe.create(rid:4678983,rid_typ:'FAH',catid:'Sides',rid_desc:'Apple Dippers',satfat:"5g",alg_milk:"Y",alg_soy:'Y',ser_size:'7.5 oz. (213 g)',yld:'7.5 oz',batch_yld:'1',shelf_life:'3 Days',sel_prc:'$2.29',scan_code:'401046096253',
+Recipe.create(rid:4678983,rid_typ:'FAH',catid:'Sides',rid_desc:'Apple Dippers',satfat:"5g",alg_milk:"Y",alg_soy:'Y',ser_size:'7.5 oz. (213 g)',yld:'7.5 oz',batch_yld:'1',shelf_life:'3 Days',sel_prc:2.29,scan_code:'401046096253',
     ingredient_list:'Apples, Apples, Corn Syrup, High Fructose Corn Syrup, Nonfat milk, Fructose, modified corn starch, salt, sugar, potassium sorbate and sodium benzoate, cream solids (from milk), sodium phosphate, sodium citrate, xanthan gum, naturam and artificial flavor, milk, caramel color, vanillin, soy lecithin, yellow 6, red 40, Pineapple Juice')
 Recipe.create(rid:2,rid_typ:'FAH',catid:"Sandwiches",rid_desc:'Hamburger',tfat:"15g",alg_milk:"Y")
 Recipe.create(rid:3,rid_typ:'FAH',catid:"Sides",rid_desc:'Cheese Plate')
@@ -45,3 +45,15 @@ Recipeprocedure.create(rid:2,rid_proc:3,rid_proc_desc:"Assemble on bun and serve
 #App_config
 Appconfig.destroy_all
 Appconfig.create(pk:1,last_update:'11/1/17')
+
+
+#Category
+Category.destroy_all
+Category.create(category_name:'All')
+Category.create(category_name:'Desserts')
+Category.create(category_name:'Salads')
+Category.create(category_name:'Sandwiches')
+Category.create(category_name:'Sides')
+
+
+

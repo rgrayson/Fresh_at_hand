@@ -1,0 +1,43 @@
+<!--recipe header -->
+
+<style>
+  
+  .terr{
+    font-family: arial, sans-serif;
+    width: 70%;
+    font-size: 12px;
+    padding: 0px; 
+    border: 3px solid #dddddd;
+    border-color: red;
+    background-color: #ffb3b3;
+    }
+
+.terr tr{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+    }           
+
+</style>
+
+
+
+<% if @terror.count>0 %>
+      
+    <table class="terr">  
+      
+      <tr>
+        <td>
+          <%= pluralize(@terror.count, "error") %> prohibited this article from being saved: 
+        </td>
+      </tr>
+      <% @terror.each do |v1, v2| %>
+        <tr>
+           <td>
+            <%= v2 %>
+           </td>
+        </tr>
+      <% end %>
+
+   </table>
+<% end %>

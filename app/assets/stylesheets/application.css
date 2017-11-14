@@ -22,7 +22,8 @@
 */
 
 .p1{
-    font-weight: bold
+    font-weight: bold;
+    font-size: large
     }
 
 .p_alert1{
@@ -66,8 +67,6 @@
 
     .table2 tr:hover {background-color: #f5cba7;}
 
-
-
 .tableheader1 th{
     border: 1px solid #dddddd;
     background-color: black;
@@ -86,6 +85,13 @@
     font-weight: bold;
     font-size:large
     }    
+
+
+.border1{
+    border: 3px solid #dddddd;
+    border-color: blue;
+    }
+
     
 .btn_med {
     width: 100px;
