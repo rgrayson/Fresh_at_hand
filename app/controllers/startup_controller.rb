@@ -1,8 +1,5 @@
 class StartupController < ApplicationController
 
-#handles all login validation/routing
-#can be replaced by differnet login process if needed
-
 def index
    #perform any startup maintenance
    #in the future all tables will be updated nightly
@@ -18,12 +15,15 @@ end
 
 def login
     
+   #set session variables
+   session[:u]=params[:username]   
+   session[:ltyp]= params[:ltyp]
+   
    #capture params    
     u=params[:username]
     p=params[:password]
     
-   #render html: params and return
-    
+   
    #check for missing controls/values
       @e=0
       @msg=""
@@ -44,16 +44,18 @@ def login
       
   #validate login
   
-  #set session variables
-   session[:u]=u   
-  
    t=Appconfig.where("pk=1")
    t.each do |tbl|
      session[:last_update]=tbl.last_update
    end
    
-  redirect_to recipe_index_path
   
+  #direct to user or admin depending
+  if session[:ltyp]=='Admin'
+     redirect_to admin_index_path and return 
+  else
+     redirect_to recipe_index_path and return
+  end
   
 end    
 

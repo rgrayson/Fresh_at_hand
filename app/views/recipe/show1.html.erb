@@ -21,29 +21,7 @@
     color: white;            
     }    
 
-    #t1 tr:nth-child(even){background-color: #f2f2f2;}
-
-    #t1 tr:hover {background-color: #f5cba7;}
-
-#t2{
-    font-family: arial, sans-serif;
-    width: 40%;   
-    border: 3px solid #dddddd;
-    border-color: blue;
-    text-align: left;
-    padding: 0px;
-    }
-
-#p1 {
-   border-collapse: collapse;
-   font-size: large;
-   font-weight: bold;
-   padding : 0;
-   margin : 0;
-   line-height : 20px;
-   text-align:left;
-    }
-
+ 
 </style>
 
 <!-- render partials -->
@@ -59,11 +37,11 @@
 <p></p>
 
 <!-- Begin Form tag group -->
-<%= form_tag recipe_path, method: 'put' do %>
+<%= form_tag work_print_label_path, method: 'put' do %>
 
 
     <!-- set hidden fields, these are needed for controler#action [params] -->
-    <% @t2.each do |tbl| %>
+    <% @t_work.each do |tbl| %>
          <%= hidden_field_tag("rid",tbl.rid) %>
     
         <!-- # COPIES/Print -->
@@ -87,7 +65,7 @@
           <th>Use for Label</th>
       </tr>    
         
-      <% @t2.each do |tbl| %>
+      <% @t_work.each do |tbl| %>
         
         <tr>
             <td>Label Name</td>

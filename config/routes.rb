@@ -6,6 +6,12 @@ Rails.application.routes.draw do
  
   #controller routes (CRUD actions only)
  resources :recipe
+ resources :work_print_label
+ resources :admin
+ 
+ 
+ 
+ 
  
  
   # The priority is based upon order of creation: first created -> highest priority.

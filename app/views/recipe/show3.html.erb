@@ -26,7 +26,7 @@
     <th>Shelf Life</th>
   </tr>
   
-  <% @t.each do |tbl| %>
+  <% @t_recipe.each do |tbl| %>
     <tr>
       <td><%=tbl.ser_size %></td>
       <td><%=tbl.calories %></td>
@@ -65,7 +65,7 @@
     <th>Wheat</th>
   </tr>
   
-  <% @t.each do |tbl| %>
+  <% @t_recipe.each do |tbl| %>
     <tr>
       <td><%=tbl.alg_egg %></td>
       <td><%=tbl.alg_shellfish %></td>
@@ -85,7 +85,7 @@
 <table class="table2">
   <col style="width:100%">
  
-  <% @t.each do |tbl| %>
+  <% @t_recipe.each do |tbl| %>
     <tr>
       <td><%=tbl.ingredient_list %></td>
     </tr>

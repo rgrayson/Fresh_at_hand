@@ -1,0 +1,26 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tadmin{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+    padding: 0px; 
+    }
+
+.tadmin td, .tadmin tr{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;        
+    } 
+
+.tadmin th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;   
+    background-color: black;
+    color: white;            
+    }    

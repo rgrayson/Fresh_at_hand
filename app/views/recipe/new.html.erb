@@ -1,0 +1,26 @@
+<%= render 'layouts/header_admin' %>
+<%= render 'layouts/display_errors' %>
+
+<%= form_tag recipe_index_path do %>
+
+  <table>
+    <tr>
+      <td>Recipe Id:</td>
+      <td><%= text_field_tag("rid") %></td> 
+    </tr>
+    
+    <tr>
+      <td>Recipe Type:</td>
+      <td><%= text_field_tag("rid_typ",'FAH',disabled:'true') %></td> 
+    </tr>
+    
+    <tr>
+      <td>Recipe Description:</td>
+      <td><%= text_field_tag("rid_desc") %></td> 
+    </tr>
+  </table>
+  
+  <%= button_to("Creat Recipe",class:'btn_med') %>
+  
+ 
+<% end %>

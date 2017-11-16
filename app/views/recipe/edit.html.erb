@@ -1,0 +1,176 @@
+<!-- render partials -->
+<%= render 'layouts/header_admin' %>
+<%= render 'layouts/display_errors' %>
+
+
+<%= params[:category] %>
+
+<!-- Begin Form tag group route to recipe#update-->
+<%= form_tag recipe_path, method: 'put' do %>
+
+
+    <!-- fill form with editable settings -->
+    <table class="tadmin">  
+      <col style="width:10%">
+      <col style="width:10%">
+      <col style="width:10%">
+      <tr>
+          <th>Setting</th>
+          <th>Current Value</th>
+          <th>Change To</th>
+      </tr>    
+        
+      <% @t_recipe.each do |tbl| %>
+            
+        <%= hidden_field_tag("rid",tbl.rid) %>    
+            
+        <tr>
+            <td>Recipie ID</td>
+            <td><%= tbl.rid %></td>
+            <td><%= tbl.rid %></td> 
+        </tr>
+        
+        <tr>
+            <td>Recipie Name</td>
+            <td><%= tbl.rid_desc %></td>
+            <td><%= text_field_tag("rid_desc",tbl.rid_desc,{maxlength:25, size:25}) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Category</td>
+            <td><%= tbl.catid %></td>
+            <td><%= select_tag("catid",options_from_collection_for_select(@category,'category_name','category_name',tbl.catid)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>UPC / Scan Code</td>
+            <td><%= tbl.scan_code %></td>
+            <td><%= text_field_tag("scan_code",tbl.scan_code,{maxlength:25, size:25}) %></td> 
+        </tr>
+        
+       <tr>
+            <td>Recommended Selling Price $</td>
+            <td><%= tbl.sel_prc %></td>
+            <td><%= text_field_tag("sel_prc",tbl.sel_prc,{maxlength:25, size:25}) %></td> 
+        </tr>
+      
+        <tr>
+            <td>Serving Size</td>
+            <td><%= tbl.ser_size %></td>
+            <td><%= text_field_tag("ser_size",tbl.ser_size) %></td> 
+        </tr>
+      
+        <tr>
+            <td>Calories</td>
+            <td><%= tbl.calories %></td>
+            <td><%= text_field_tag("calories",tbl.calories) %></td> 
+        </tr>
+
+        <tr>
+            <td>Total Fat</td>
+            <td><%= tbl.tfat %></td>
+            <td><%= text_field_tag("tfat",tbl.tfat) %></td> 
+        </tr>      
+        
+        <tr>
+            <td>Calories From Fat</td>
+            <td><%= tbl.cfrmfat %></td>
+            <td><%= text_field_tag("cfrmfat",tbl.cfrmfat) %></td> 
+        </tr>    
+       
+        <tr>
+            <td>Saturated Fat</td>
+            <td><%= tbl.satfat %></td>
+            <td><%= text_field_tag("satfat",tbl.satfat) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Yield</td>
+            <td><%= tbl.yld %></td>
+            <td><%= text_field_tag("yld",tbl.yld) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Batch Yieldt</td>
+            <td><%= tbl.batch_yld %></td>
+            <td><%= text_field_tag("batch_yld",tbl.batch_yld) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Shelf Life</td>
+            <td><%= tbl.shelf_life %></td>
+            <td><%= text_field_tag("shelf_life",tbl.shelf_life) %></td> 
+        </tr>
+
+        
+        <tr>
+            <td>Allergen-Egg</td>
+            <td><%= tbl.alg_egg %></td>
+            <td><%= select_tag("alg_egg",options_for_select(["","Y"],tbl.alg_egg)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-ShellFish</td>
+            <td><%= tbl.alg_shellfish %></td>
+            <td><%= select_tag("alg_shellfish",options_for_select(["","Y"],tbl.alg_shellfish)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Fish</td>
+            <td><%= tbl.alg_fish %></td>
+            <td><%= select_tag("alg_fish",options_for_select(["","Y"],tbl.alg_fish)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Soy</td>
+            <td><%= tbl.alg_soy %></td>
+            <td><%= select_tag("alg_soy",options_for_select(["","Y"],tbl.alg_soy)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Milk</td>
+            <td><%= tbl.alg_milk %></td>
+            <td><%= select_tag("alg_milk",options_for_select(["","Y"],tbl.alg_milk)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Tree Nuts</td>
+            <td><%= tbl.alg_treenuts %></td>
+            <td><%= select_tag("alg_treenuts",options_for_select(["","Y"],tbl.alg_treenuts)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Peanuts</td>
+            <td><%= tbl.alg_peanuts %></td>
+            <td><%= select_tag("alg_peanuts",options_for_select(["","Y"],tbl.alg_peanuts)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Allergen-Wheat</td>
+            <td><%= tbl.alg_wheat %></td>
+            <td><%= select_tag("alg_wheat",options_for_select(["","Y"],tbl.alg_wheat)) %></td> 
+        </tr>
+        
+        <tr>
+            <td>Ingredients</td>
+            <td><%= tbl.ingredient_list %></td>
+            <td><%= text_area_tag("ingredient_list",tbl.ingredient_list,size: "25x15") %></td> 
+        </tr>
+        
+      <% end %>
+    
+    </table>  
+    <br>
+    
+    <table>
+        <tr>
+          <td><%= button_to("Save Changes",{},{class: 'btn_med_w'}) %></td>
+          <td><%= button_to("Cancel",admin_index_path,{method: 'get',class: 'btn_med'}) %></td>
+        </tr>    
+        
+    </table>
+   ,
+
+<% end %>
+
+

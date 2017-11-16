@@ -17,7 +17,7 @@
     <th>Shelf Life</th>
   </tr>
   
-  <% @t.each do |tbl| %>
+  <% @t_recipe.each do |tbl| %>
     <tr>
       <td><%=tbl.ser_size %></td>
       <td><%=tbl.yld  %></td>
@@ -52,7 +52,7 @@
     
   </tr>
   
-  <% @t2.each do |tbl| %>
+  <% @t_recipe_ing.each do |tbl| %>
     <tr>
       <td><%=tbl.rid_li %></td>
       <td><%=tbl.desc %></td>
@@ -79,7 +79,7 @@
     <th>Description</th>
   </tr>
   
-  <% @t3.each do |tbl| %>
+  <% @t_reciepe_proc.each do |tbl| %>
     <tr>
       <td><%=tbl.rid_proc %></td>
       <td><%=tbl.rid_proc_desc %></td>

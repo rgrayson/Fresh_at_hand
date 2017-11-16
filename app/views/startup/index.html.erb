@@ -10,12 +10,18 @@
         <col style="width:35%">
         <tr>
             <td>Username:</td>
-            <td><%= text_field_tag(:username, params[:u])%></td>
+            <td><%= text_field_tag('username')%></td>
         </tr>
         <tr>
             <td>Password:</td>
-            <td><%= password_field_tag(:password,params[:p]) %></td>
+            <td><%= password_field_tag('password') %></td>
         </tr>
+        <tr>
+            <td>Login Type:</td>
+            <td><%= select_tag("ltyp",options_for_select(["User","Admin"],"User")) %></td>
+        </tr>
+        
+        
         
     </table>
     

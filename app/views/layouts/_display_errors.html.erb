@@ -22,16 +22,16 @@
 
 
 
-<% if @terror.count>0 %>
+<% if @t_error.count>0 %>
       
     <table class="terr">  
       
       <tr>
         <td>
-          <%= pluralize(@terror.count, "error") %> prohibited this article from being saved: 
+          <%= pluralize(@t_error.count, "error") %> prohibited this article from being saved: 
         </td>
       </tr>
-      <% @terror.each do |v1, v2| %>
+      <% @t_error.each do |v1, v2| %>
         <tr>
            <td>
             <%= v2 %>
