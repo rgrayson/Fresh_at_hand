@@ -1,16 +1,16 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/header_userinfo' %>
 
-
 <!--  dropdown for categories -->
 <table class="border1"; width="45%">
   <tr>
     <%= form_tag(recipe_index_path, method: 'get') do %>
-      <td><p class='p1'>Category: <%= select_tag("category",options_from_collection_for_select(@category,'category_name','category_name',@category_def), :class => 'p1') %></p> </td>
+      <td><p class='p1'>Category: <%= select_tag('category',options_from_collection_for_select(@category,'category_name','category_name',session[:category_def]), :class => 'p1') %></p> </td>
       <td><%= submit_tag 'Refresh',class: 'btn_med'  %></td>
     <% end %>
   </tr>  
 </table>
+
 
 
 <table class="table2">

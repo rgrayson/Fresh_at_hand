@@ -7,13 +7,13 @@
     padding: 0px; 
     }
 
-#t1 td, #tableprint tr{
+#t1 td{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 5px;        
     } 
 
-#t1 th {
+#t1 th{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 5px;   
@@ -32,17 +32,22 @@
 
 <!-- misc text -->
 <p></p>
-<p id="p1">Directions:</p>
-<p id="p1">Edit/Change "Use for Label" setting as needed for Custom Label. Then enter # copies and click PRINT</p>
+<p class="p1">Directions:</p>
+<p class="p1">Edit/Change "Use for Label" setting as needed for Custom Label. Then enter # copies and click PRINT</p>
 <p></p>
+
 
 <!-- Begin Form tag group -->
 <%= form_tag work_print_label_path, method: 'put' do %>
-
+       
+         
+         
+         
 
     <!-- set hidden fields, these are needed for controler#action [params] -->
     <% @t_work.each do |tbl| %>
          <%= hidden_field_tag("rid",tbl.rid) %>
+         
     
         <!-- # COPIES/Print -->
         <table id="t2">
@@ -58,7 +63,7 @@
     <table id="t1">  
       <col style="width:10%">
       <col style="width:10%">
-      <col style="width:10%">
+      <col style="width:4%">
       <tr>
           <th>Setting</th>
           <th>Default Value</th>
@@ -149,7 +154,8 @@
         <tr>
             <td>Ingredients</td>
             <td><%= tbl.ingredient_list %></td>
-            <td><%= text_area_tag("ingredient_list2",tbl.ingredient_list2,size: "25x15") %></td> 
+            <td><%= tbl.ingredient_list %></td>
+            <%= hidden_field_tag("ingredient_list",tbl.ingredient_list) %>
         </tr>
         
       <% end %>

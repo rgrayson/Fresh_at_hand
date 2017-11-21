@@ -17,8 +17,8 @@ def login
     
    #set session variables
    session[:u]=params[:username]   
-   session[:ltyp]= params[:ltyp]
-   
+   session[:category_def]='All'
+  
    #capture params    
     u=params[:username]
     p=params[:password]
@@ -50,12 +50,9 @@ def login
    end
    
   
-  #direct to user or admin depending
-  if session[:ltyp]=='Admin'
-     redirect_to admin_index_path and return 
-  else
+  #direct to user index
      redirect_to recipe_index_path and return
-  end
+  
   
 end    
 

@@ -21,7 +21,7 @@ def update
       tbl.alg_treenuts2=params[:alg_treenuts2]
       tbl.alg_peanuts2=params[:alg_peanuts2]
       tbl.alg_wheat2=params[:alg_wheat2]
-      tbl.ingredient_list2=params[:ingredient_list2] 
+      tbl.ingredient_list2=params[:ingredient_list] 
       r=tbl.valid?
       if r==false
           #errors detected

@@ -3,17 +3,24 @@ class RecipeController < ApplicationController
 
 def index
     
-    #filter recipes based on params[:category]
-    #this is set by recipe/index view
-    if params[:category] == 'All' or params[:category].nil?
+    #set session[:category_def] if just changed
+    #want to set this from index view but how?
+    if params[:category].nil?
+        #ignore will be set below
+    else
+        session[:category_def]=params[:category]
+    end
+    
+    #filter recipes based on session[:category]
+    if session[:category_def] == 'All' or session[:category_def].nil?
         #Show all recipes
         @t_recipe=Recipe.all.order("catid","rid_desc")
-        @category_def='All'
+        session[:category_def]='All'
     else
         #Filter by Category
-        @t_recipe=Recipe.where("catid=?", params[:category]).order("catid","rid_desc")
-        @category_def=params[:category]
+        @t_recipe=Recipe.where("catid=?", session[:category_def]).order("catid","rid_desc")
     end     
+    
     
 end
 
@@ -26,10 +33,11 @@ def create
         tbl.rid=params[:rid]
         tbl.rid_typ=params[:rid_typ]
         tbl.rid_desc =params[:rid_desc]
+        tbl.catid=params[:catid]
         if tbl.valid? ==false
             #errors
             @t_error=tbl.errors.messages
-            render 'recipe/new' and return
+            render 'recipe/new'
         else
             #save
             tbl.save
@@ -39,8 +47,9 @@ def create
 end     
 
 def new
-
-     @t_error='saved'
+    
+    @t_recipe=Recipe.new
+    @t_error=Recipe.where('rid=-100')
 
 end    
 
@@ -63,7 +72,8 @@ def show
         
         #clear work table
             WorkPrintLabel.delete_all()
-          
+        
+        
         #refill with Recipe data
              @t_recipe.each do |tbl| 
                  w = WorkPrintLabel.new
@@ -119,50 +129,6 @@ def show
     
 end    
 
-def update
-    
-    # called by Admin only
-    #save/update recipe
-    @t_recipe=Recipe.where("rid=?",params[:rid])
-    @t_recipe.each do |tbl|    
-        tbl.rid=params[:rid]
-        tbl.rid_desc=params[:rid_desc]
-        tbl.catid=params[:catid]
-        tbl.scan_code=params[:scan_code]
-        tbl.sel_prc=params[:sel_prc]
-        tbl.ser_size=params[:ser_size]
-        tbl.calories=params[:calories]
-        tbl.tfat=params[:tfat]
-        tbl.cfrmfat=params[:cfrmfat]
-        tbl.satfat=params[:satfat]
-        tbl.yld=params[:yld]
-        tbl.batch_yld=params[:batch_yld]
-        tbl.shelf_life=params[:shelf_life]
-        tbl.alg_egg=params[:alg_egg]
-        tbl.alg_shellfish=params[:alg_shellfish]
-        tbl.alg_fish=params[:alg_fish]
-        tbl.alg_soy=params[:alg_soy]
-        tbl.alg_milk=params[:alg_milk]
-        tbl.alg_treenuts=params[:alg_treenuts]
-        tbl.alg_peanuts=params[:alg_peanuts]
-        tbl.alg_wheat=params[:alg_wheat]
-        tbl.ingredient_list=params[:ingredient_list]
-       
-        if tbl.valid? ==false
-            #errors
-            @t_recipe=Recipe.where("rid=?",params[:rid])
-            @t_error=tbl.errors.messages
-            render 'recipe/edit' and return
-        else
-            #ok to save
-            tbl.save
-            @t_error='saved'
-            render 'admin/index' and return
-        end
-        
-    end
-    
-end    
 
 
 

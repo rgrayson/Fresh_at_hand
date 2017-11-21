@@ -1,6 +1,10 @@
 <%= render 'layouts/header2' %>
 <%= render 'layouts/header_recipe' %>
 
+<table width="100%">
+  <tr><td align="right"><%= button_to("Print", recipe_path,{class: 'btn_med'}) %></td></tr>
+</table>
+
 <!--Serving Info -->
 <p class="sectionheader">Serving Info:</p>
 
@@ -78,6 +82,7 @@
     <th>Step</th>
     <th>Description</th>
   </tr>
+  
   
   <% @t_reciepe_proc.each do |tbl| %>
     <tr>

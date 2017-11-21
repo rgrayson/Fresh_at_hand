@@ -1,6 +1,10 @@
 <%= render 'layouts/header2' %>
 <%= render 'layouts/header_recipe' %>
 
+<table width="100%">
+  <tr><td align="right"><%= button_to("Print", recipe_path,{class: 'btn_med'}) %></td></tr>
+</table>
+
 
 <!--Nutritionals -->
 <p class="sectionheader">Nutritionals:</p>
@@ -18,9 +22,9 @@
   <tr class="tableheader1">
     <th>Serving Size</th>
     <th>Calories</th>
-    <th>Total Fat</th>
-    <th>Calories from Fat</th>
-    <th>Saturated fat</th>
+    <th>Total Fat (g)</th>
+    <th>%Calories from Fat</th>
+    <th>Saturated fat (g)</th>
     <th>Recipe Yield</th>
     <th>Batch Yield</th>
     <th>Shelf Life</th>
