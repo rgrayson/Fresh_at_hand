@@ -5,6 +5,7 @@ def update
     #called from show1/"Print labels".  Will will take data from
     #and insert into work table used for printing, then envoke "print"
     
+    
     #save all to work table
     @t_work=WorkPrintLabel.all()
     @t_work.each do |tbl| 
@@ -21,7 +22,21 @@ def update
       tbl.alg_treenuts2=params[:alg_treenuts2]
       tbl.alg_peanuts2=params[:alg_peanuts2]
       tbl.alg_wheat2=params[:alg_wheat2]
-      tbl.ingredient_list2=params[:ingredient_list] 
+      tbl.ingredient_list2=params[:ingredient_list]
+      tbl.div2=params[:div2]
+      tbl.acnt_name2=params[:acnt_name2]
+        # #get accnt dependant info
+        t2=Accntlist.where("acnt_name=?",params[:acnt_name2])
+        if t2.any?
+           t2.each do |tbl2|
+            tbl.produced_by2=tbl2.produced_by  
+            tbl.address_full2= tbl2.address + ", " + tbl2.city + " " + tbl2.state + " " + tbl2.zip
+           end
+        else  
+            tbl.produced_by2='AVI FOODSYSTEMS INC'  
+            tbl.address_full2= '2590 ELM RD, WARREN OH 44483'
+        end
+        
       r=tbl.valid?
       if r==false
           #errors detected
@@ -38,9 +53,9 @@ def update
     
     render 'print_label'
     
-end    
-
+end   
 
 
 
 end
+

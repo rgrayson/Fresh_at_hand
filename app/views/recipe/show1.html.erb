@@ -40,17 +40,22 @@
 <!-- Begin Form tag group -->
 <%= form_tag work_print_label_path, method: 'put' do %>
        
-         
-         
-         
 
     <!-- set hidden fields, these are needed for controler#action [params] -->
     <% @t_work.each do |tbl| %>
          <%= hidden_field_tag("rid",tbl.rid) %>
-         
-    
+        
+        <!-- Division/Account Name -->
+        <table>
+            <tr>
+                <td><p class='p1'>Division: <%= select_tag('div2',options_from_collection_for_select(@div_list,'div_name','div_name',nil), :class => 'p1') %></p> </td>
+                <td><p class='p1'>Account: <%= select_tag('acnt_name2',options_from_collection_for_select(@acnt_list,'acnt_name','acnt_name',nil), :class => 'p1') %></p> </td>
+            </tr>
+        </table>
+        
+        
         <!-- # COPIES/Print -->
-        <table id="t2">
+        <table>
             <tr>
                 <td><p class="p1">Copies:</p></td>
                 <td><%= text_field_tag("copies",1,{maxlength:2, size:5,class:'p1'}) %></td>

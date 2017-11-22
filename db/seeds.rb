@@ -55,5 +55,17 @@ Category.create(category_name:'Salads')
 Category.create(category_name:'Sandwiches')
 Category.create(category_name:'Sides')
 
+#Avi divisions
+Avidiv.destroy_all
+Avidiv.create(div_name:'All')
+Avidiv.create(div_name:'Education_Campus')
+Avidiv.create(div_name:'Education_K12')
+Avidiv.create(div_name:'Business_Dining')
+Avidiv.create(div_name:'Healthcare')
 
-
+#Account List
+Accntlist.destroy_all
+Accntlist.create(div:'Business_Dining',acnt_name:'Celadon Trucking Services Dining',address:'9503 East 33rd St',city:'Indianapolis',state:'IN',zip:'46235',produced_by: 'AVI FOODSYSTEMS INC.')
+Accntlist.create(div:'Business_Dining',acnt_name:'Dana Holding Longbow',address:'580 Longbow Dr',city:'Maumee',state:'OH',zip:'43537',produced_by: 'AVI FOODSYSTEMS INC.')
+Accntlist.create(div:'Healthcare',acnt_name:'Clermont Hospital',address:'3000 Hospital Dr',city:'Batavia',state:'OH',zip:'45103',produced_by: 'AVI FOODSYSTEMS INC.')
+Accntlist.create(div:'Healthcare',acnt_name:'Defiance Hospital',address:'1404 East 2nd St',city:'Defiance',state:'OH',zip:'43512',produced_by: 'AVI FOODSYSTEMS INC.')

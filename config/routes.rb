@@ -4,13 +4,11 @@ Rails.application.routes.draw do
  
   #global routes
   get 'startup/login' =>'startup#login'
-  get 'admin/delete_recipe' =>'admin#delete_recipe'
- 
+  
   #controller routes (CRUD actions only)
   resources :recipe
   resources :work_print_label
 
- 
  
  
  
