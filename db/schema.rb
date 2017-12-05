@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129163200) do
+ActiveRecord::Schema.define(version: 20171201183811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,15 @@ ActiveRecord::Schema.define(version: 20171129163200) do
     t.text     "ingredient_list"
     t.text     "scan_code"
     t.decimal  "sel_prc"
+    t.string   "calfrmsatfat"
+    t.string   "transfat"
+    t.string   "cholesterol"
+    t.string   "sodium"
+    t.string   "totalcarb"
+    t.string   "fiber"
+    t.string   "sugar"
+    t.string   "protein"
+    t.string   "productnum"
   end
 
   create_table "work_print_labels", force: :cascade do |t|

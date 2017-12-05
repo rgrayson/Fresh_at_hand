@@ -6,94 +6,152 @@
 </table>
 
 
-<!--Nutritionals -->
-<p class="sectionheader">Nutritionals:</p>
-
-<table class="table2">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
+<!--Misc -->
+  <p class="sectionheader">Misc:</p>
   
-  <tr class="tableheader1">
-    <th>Serving Size</th>
-    <th>Calories</th>
-    <th>Total Fat (g)</th>
-    <th>%Calories from Fat</th>
-    <th>Saturated fat (g)</th>
-    <th>Recipe Yield</th>
-    <th>Batch Yield</th>
-    <th>Shelf Life</th>
-  </tr>
-  
-  <% @t_recipe.each do |tbl| %>
-    <tr>
-      <td><%=tbl.ser_size %></td>
-      <td><%=tbl.calories %></td>
-      <td><%=tbl.tfat %></td>
-      <td><%=tbl.cfrmfat %></td>
-      <td><%=tbl.satfat %></td>
-      <td><%=tbl.yld  %></td>
-      <td><%=tbl.batch_yld %></td>
-      <td><%=tbl.shelf_life %></td>
+  <table class="table2">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <col style="width:15%">
+    
+    <tr class="tableheader1">
+      <th>Serving Size</th>
+      <th>Recipe Yield</th>
+      <th>Batch Yield</th>
+      <th>Shelf Life</th>
+      <th>Product Num</th>
     </tr>
-  <% end %>
-</table>
+    
+    <% @t_recipe.each do |tbl| %>
+      <tr>
+        <td><%=tbl.ser_size %></td>
+        <td><%=tbl.yld  %></td>
+        <td><%=tbl.batch_yld %></td>
+        <td><%=tbl.shelf_life %></td>
+        <td><%=tbl.productnum%></td>
+      </tr>
+    <% end %>
+  </table>
+  
+
+<!--Nutritionals1 -->
+  <p class="sectionheader">Nutritionals:</p>
+  
+  <table class="table2">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    
+    <tr class="tableheader1">
+      <th>Calories</th>
+      <th>Total Fat (g)</th>
+      <th>%Calories from Fat</th>
+      <th>Saturated fat (g)</th>
+      <th>%Calories from Saturated Fat</th>
+      <th>Trans Fat</th>
+    </tr>
+    
+    <% @t_recipe.each do |tbl| %>
+      <tr>
+        <td><%=tbl.calories %></td>
+        <td><%=tbl.tfat %></td>
+        <td><%=tbl.cfrmfat %></td>
+        <td><%=tbl.satfat %></td>
+        <td><%=tbl.calfrmsatfat%></td>
+        <td><%=tbl.transfat %></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+<!--Nutritionals2 -->
+  <p></p>
+  
+  <table class="table2">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    
+    <tr class="tableheader1">
+      <th>Cholesterol</th>
+      <th>Sodium</th>
+      <th>Total Carb</th>
+      <th>Fiber</th>
+      <th>Sugar</th>
+      <th>Protein</th>
+    </tr>
+    
+    <% @t_recipe.each do |tbl| %>
+      <tr>
+        <td><%=tbl.cholesterol %></td>
+        <td><%=tbl.sodium %></td>
+        <td><%=tbl.totalcarb %></td>
+        <td><%=tbl.fiber %></td>
+        <td><%=tbl.sugar %></td>
+        <td><%=tbl.protein %></td>
+    </tr>
+    <% end %>
+  </table>
+
 
 
 <!--Allergens -->
-<p class="sectionheader">Allergens: </p>  
-<table class="table2">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
-  <col style="width:5%">
- 
-  
-  <tr class="tableheader1">
-    <th>Egg</th>
-    <th>Shellfish</th>
-    <th>Fish</th>
-    <th>Soy</th>
-    <th>Milk</th>
-    <th>Tree Nuts</th>
-    <th>Peanuts</th>
-    <th>Wheat</th>
-  </tr>
-  
-  <% @t_recipe.each do |tbl| %>
-    <tr>
-      <td><%=tbl.alg_egg %></td>
-      <td><%=tbl.alg_shellfish %></td>
-      <td><%=tbl.alg_fish %></td>
-      <td><%=tbl.alg_soy  %></td>
-      <td><%=tbl.alg_milk %></td>
-      <td><%=tbl.alg_treenuts %></td>
-      <td><%=tbl.alg_peanuts %></td>
-      <td><%=tbl.alg_wheat %></td>
+  <p class="sectionheader">Allergens: </p>  
+  <table class="table2">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <col style="width:5%">
+   
+    
+    <tr class="tableheader1">
+      <th>Egg</th>
+      <th>Shellfish</th>
+      <th>Fish</th>
+      <th>Soy</th>
+      <th>Milk</th>
+      <th>Tree Nuts</th>
+      <th>Peanuts</th>
+      <th>Wheat</th>
     </tr>
-  <% end %>
-</table>
+    
+    <% @t_recipe.each do |tbl| %>
+      <tr>
+        <td><%=tbl.alg_egg %></td>
+        <td><%=tbl.alg_shellfish %></td>
+        <td><%=tbl.alg_fish %></td>
+        <td><%=tbl.alg_soy  %></td>
+        <td><%=tbl.alg_milk %></td>
+        <td><%=tbl.alg_treenuts %></td>
+        <td><%=tbl.alg_peanuts %></td>
+        <td><%=tbl.alg_wheat %></td>
+      </tr>
+    <% end %>
+  </table>
 
 
 <!--Ingredients List -->
-<p class="sectionheader">Ingredients List: </p>  
-<table class="table2">
-  <col style="width:100%">
- 
-  <% @t_recipe.each do |tbl| %>
-    <tr>
-      <td><%=tbl.ingredient_list %></td>
-    </tr>
-  <% end %>
-</table>
+  <p class="sectionheader">Ingredients List: </p>  
+  <table class="table2">
+    <col style="width:100%">
+   
+    <% @t_recipe.each do |tbl| %>
+      <tr>
+        <td><%=tbl.ingredient_list %></td>
+      </tr>
+    <% end %>
+  </table>
 
 
