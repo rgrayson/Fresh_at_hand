@@ -19,3 +19,4 @@
 
 #ignore ENV VARIABLES
 /config/env_settings.rb
+.DS_Store

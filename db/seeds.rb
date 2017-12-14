@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 #recipe
 Recipe.destroy_all
 Recipe.create(rid:4678983,rid_typ:'FAH',catid:'Sides',rid_desc:'Apple Dippers',satfat:"5g",alg_milk:"Y",alg_soy:'Y',ser_size:'7.5 oz. (213 g)',yld:'7.5 oz',batch_yld:'1',shelf_life:'3 Days',sel_prc:2.29,scan_code:'401046096253',
@@ -29,7 +20,6 @@ Recipeingredient.create(rid:2,rid_li:2,supc:'h2',desc:'Bun')
 Recipeingredient.create(rid:2,rid_li:3,supc:'h3',desc:'Lettuce')
 Recipeingredient.create(rid:2,rid_li:4,supc:'h4',desc:'Tomato')
 
-
 #Recipeprocedure
 Recipeprocedure.destroy_all
 Recipeprocedure.create(rid:4678983,rid_proc:1,rid_proc_desc:"Place the caramel in the parfait insert")
@@ -41,11 +31,9 @@ Recipeprocedure.create(rid:2,rid_proc:1,rid_proc_desc:"Grill Hamburger to intern
 Recipeprocedure.create(rid:2,rid_proc:2,rid_proc_desc:"Perpare lettece and tomato")
 Recipeprocedure.create(rid:2,rid_proc:3,rid_proc_desc:"Assemble on bun and server")
 
-
 #App_config
 Appconfig.destroy_all
 Appconfig.create(pk:1,last_update:'11/1/17')
-
 
 #Category
 Category.destroy_all
