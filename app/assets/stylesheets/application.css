@@ -1,117 +1,114 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
-
-
-/*
- General Table Formatting
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
 */
 
-.p1{
-    font-weight: bold;
-    font-size: large
-    }
+/*
+General Table Formatting
+*/
 
-.p_alert1{
-    font-weight: bold;
-    color: white;
-    background-color: red;
-    padding: 5px;
-    }
+.p1 {
+  font-weight: bold;
+  font-size: large
+}
 
+.p_alert1 {
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  padding: 5px;
+}
 
-.table1{
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 50%;   
-    border: none;
-    text-align: left;
-    padding: 2px;
-    }        
+.table1 {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  border: none;
+  text-align: left;
+  padding: 2px;
+}
 
-.table2{
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 12px;
-    padding: 0px; 
-    }
+.table2 {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  padding: 0px;
+}
 
-.table2 td{
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;        
-    } 
+.table2 td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
-.table2 tr{
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;        
-    }           
-    
-    .table2 tr:nth-child(even){background-color: #f2f2f2;}
+.table2 tr {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
-    .table2 tr:hover {background-color: #f5cba7;}
+.table2 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-.tableheader1 th{
-    border: 1px solid #dddddd;
-    background-color: black;
-    color: white;
-    text-align: left;
-    height:30px;
-    }
+.table2 tr:hover {
+  background-color: #f5cba7;
+}
+
+.tableheader1 th {
+  border: 1px solid #dddddd;
+  background-color: black;
+  color: white;
+  text-align: left;
+  height:30px;
+}
 
 .sectionheader {
-    border-collapse:collapse;
-    padding:0px;
-    background-color: white;
-    color: blue;
-    text-align: left;
-    height: 5px;
-    font-weight: bold;
-    font-size:large
-    }    
+  border-collapse:collapse;
+  padding:0px;
+  background-color: white;
+  color: blue;
+  text-align: left;
+  height: 5px;
+  font-weight: bold;
+  font-size:large
+}
 
+.border1 {
+  border: 3px solid #dddddd;
+  border-color: blue;
+}
 
-.border1{
-    border: 3px solid #dddddd;
-    border-color: blue;
-    }
-
-    
 .btn_med {
-    width: 100px;
-    height: 40px;
-    font-weight: bold;
-    font-size:large
-    }     
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  font-size:large
+}
 
 .btn_med_w {
-    width: 150px;
-    height: 40px;
-    font-weight: bold;
-    font-size:large
-    }     
-    
+  width: 150px;
+  height: 40px;
+  font-weight: bold;
+  font-size:large
+}
+
 .whitespace10px {
-    border-collapse:collapse;
-    padding:0px;
-    background-color: white;
-    color: white;
-    height: 10px;
-    }    
-    
+  border-collapse:collapse;
+  padding:0px;
+  background-color: white;
+  color: white;
+  height: 10px;
+}
