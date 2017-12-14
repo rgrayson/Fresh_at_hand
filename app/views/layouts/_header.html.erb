@@ -1,24 +1,22 @@
 <style>
-    .tx {text-align: center;}
-    .tr{border-collapse:collapse; padding:0px;}
-    .tc1{width:2%; text-align:left;}
-    .tc2{width:10%; font-weight:bold; font-size:xx-large;}
-    .tc3{width:5%; font-size:x-large;}    
+  .tx {text-align: center;}
+  .tr{border-collapse:collapse; padding:0px;}
+  .tc1{width:2%; text-align:left;}
+  .tc2{width:10%; font-weight:bold; font-size:xx-large;}
+  .tc3{width:5%; font-size:x-large;}
 </style>
 
-
 <table class="tx">
-    <tr class="tr">
-        <td class="tc1"><%= image_tag("AVI_Logo.jpg", alt: "avi logo", height: "60", width: "125") %></td>
-        <td class="tc2">Fresh at Hand Recipe Viewer</td>
-        <td class="tc3"><%=link_to "Logout", root_path, :method => :get %></td>
+  <tr class="tr">
+    <td class="tc1"><%= image_tag("AVI_Logo.jpg", alt: "avi logo", height: "60", width: "125") %></td>
+    <td class="tc2">Fresh at Hand Recipe Viewer</td>
+    <td class="tc3"><%=link_to "Logout", root_path, :method => :get %></td>
+  </tr>
 </table>
-   
 
 <% if flash[:notice] %>
   <p class="p_alert1"><%= flash[:notice] %></p>
-  <% flash[:notice]=nil %>
- <% else %>
-     <p></p>
+  <% flash[:notice] = nil %>
+<% else %>
+  <p></p>
 <% end %>
-

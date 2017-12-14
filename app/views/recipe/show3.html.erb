@@ -5,17 +5,16 @@
   <tr><td align="right"><%= button_to("Print", recipe_path,{class: 'btn_med'}) %></td></tr>
 </table>
 
-
-<!--Serving Info -->
+  <!--Serving Info -->
   <p class="sectionheader">Serving Info:</p>
-  
+
   <table class="table2">
     <col style="width:20%">
     <col style="width:20%">
     <col style="width:20%">
     <col style="width:20%">
     <col style="width:20%">
-    
+
     <tr class="tableheader1">
       <th>Serving Size</th>
       <th>Recipe Yield</th>
@@ -23,7 +22,7 @@
       <th>Shelf Life</th>
       <th>Product Num</th>
     </tr>
-    
+
     <% @t_recipe.each do |tbl| %>
       <tr>
         <td><%=tbl.ser_size %></td>
@@ -34,13 +33,13 @@
       </tr>
     <% end %>
   </table>
-<p class="whitespace10px"></p>  
-<p class="whitespace10px"></p>  
 
+<p class="whitespace10px"></p>
+<p class="whitespace10px"></p>
 
 <!--Nutritionals1 -->
   <p class="sectionheader">Nutritionals:</p>
-  
+
   <table class="table2">
     <col style="width:15%">
     <col style="width:15%">
@@ -48,7 +47,7 @@
     <col style="width:15%">
     <col style="width:15%">
     <col style="width:15%">
-    
+
     <tr class="tableheader1">
       <th>Calories</th>
       <th>Total Fat (g)</th>
@@ -57,7 +56,7 @@
       <th>%Calories from Saturated Fat</th>
       <th>Trans Fat (g)</th>
     </tr>
-    
+
     <% @t_recipe.each do |tbl| %>
       <tr>
         <td><%=tbl.calories %></td>
@@ -66,14 +65,13 @@
         <td><%=tbl.satfat %></td>
         <td><%=tbl.calfrmsatfat%></td>
         <td><%=tbl.transfat %></td>
-    </tr>
+      </tr>
     <% end %>
   </table>
 
-
 <!--Nutritionals2 -->
   <p></p>
-  
+
   <table class="table2">
     <col style="width:15%">
     <col style="width:15%">
@@ -81,7 +79,7 @@
     <col style="width:15%">
     <col style="width:15%">
     <col style="width:15%">
-    
+
     <tr class="tableheader1">
       <th>Cholesterol (mg)</th>
       <th>Sodium (mg)</th>
@@ -90,7 +88,7 @@
       <th>Sugar (g)</th>
       <th>Protein (g)</th>
     </tr>
-    
+
     <% @t_recipe.each do |tbl| %>
       <tr>
         <td><%=tbl.cholesterol %></td>
@@ -99,15 +97,15 @@
         <td><%=tbl.fiber %></td>
         <td><%=tbl.sugar %></td>
         <td><%=tbl.protein %></td>
-    </tr>
+      </tr>
     <% end %>
   </table>
-<p class="whitespace10px"></p>  
-<p class="whitespace10px"></p>  
 
+<p class="whitespace10px"></p>
+<p class="whitespace10px"></p>
 
 <!--Allergens -->
-  <p class="sectionheader">Allergens: </p>  
+  <p class="sectionheader">Allergens: </p>
   <table class="table2">
     <col style="width:12%">
     <col style="width:12%">
@@ -117,8 +115,7 @@
     <col style="width:12%">
     <col style="width:12%">
     <col style="width:12%">
-   
-    
+
     <tr class="tableheader1">
       <th>Egg</th>
       <th>Shellfish</th>
@@ -129,7 +126,7 @@
       <th>Peanuts</th>
       <th>Wheat</th>
     </tr>
-    
+
     <% @t_recipe.each do |tbl| %>
       <tr>
         <td><%=tbl.alg_egg %></td>
@@ -142,20 +139,20 @@
         <td><%=tbl.alg_wheat %></td>
       </tr>
     <% end %>
+
   </table>
-<p class="whitespace10px"></p>  
-<p class="whitespace10px"></p>  
+
+<p class="whitespace10px"></p>
+<p class="whitespace10px"></p>
 
 <!--Ingredients List -->
-  <p class="sectionheader">Ingredients List: </p>  
+  <p class="sectionheader">Ingredients List: </p>
   <table class="table2">
     <col style="width:100%">
-   
+
     <% @t_recipe.each do |tbl| %>
       <tr>
         <td><%=tbl.ingredient_list %></td>
       </tr>
     <% end %>
   </table>
-
-

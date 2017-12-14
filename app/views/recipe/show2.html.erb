@@ -13,14 +13,14 @@
   <col style="width:5%">
   <col style="width:5%">
   <col style="width:5%">
-  
+
   <tr class="tableheader1">
     <th>Serving Size</th>
     <th>Recipe Yield</th>
     <th>Batch Yield</th>
     <th>Shelf Life</th>
   </tr>
-  
+
   <% @t_recipe.each do |tbl| %>
     <tr>
       <td><%=tbl.ser_size %></td>
@@ -30,9 +30,8 @@
     </tr>
   <% end %>
 </table>
-<p class="whitespace10px"></p>  
-<p class="whitespace10px"></p>  
-
+<p class="whitespace10px"></p>
+<p class="whitespace10px"></p>
 
 <!--Ingredients -->
 <p class="sectionheader">Ingredients:</p>
@@ -45,7 +44,7 @@
   <col style="width:8%">
   <col style="width:8%">
   <col style="width:8%">
-  
+
   <tr class="tableheader1">
     <th>Line</th>
     <th>Ingredients</th>
@@ -54,9 +53,8 @@
     <th>Amount</th>
     <th>Measure</th>
     <th>Cost</th>
-    
   </tr>
-  
+
   <% @t_recipe_ing.each do |tbl| %>
     <tr>
       <td><%=tbl.rid_li %></td>
@@ -69,10 +67,9 @@
     </tr>
   <% end %>
 </table>
-<p class="whitespace10px"></p>  
-<p class="whitespace10px"></p>  
 
-
+<p class="whitespace10px"></p>
+<p class="whitespace10px"></p>
 
 <!--Procedure -->
 <p class="sectionheader">Procedure:</p>
@@ -80,13 +77,12 @@
 <table class="table2">
   <col style="width:5%">
   <col style="width:80%">
-  
+
   <tr class="tableheader1">
     <th>Step</th>
     <th>Description</th>
   </tr>
-  
-  
+
   <% @t_reciepe_proc.each do |tbl| %>
     <tr>
       <td><%=tbl.rid_proc %></td>
@@ -94,5 +90,3 @@
     </tr>
   <% end %>
 </table>
-
-

@@ -1,36 +1,29 @@
 <%= render 'layouts/header' %>
 <p style="font-size:large; font-weight:bold; padding:0px;">Login:</p>
 
-
 <%= form_tag("/startup/login", method: "get") do %>
-    
-    <table class="table1">
+  <table class="table1">
+    <col style="width:5%">
+    <col style="width:35%">
 
-        <col style="width:5%">
-        <col style="width:35%">
-        <tr>
-            <td>Username:</td>
-            <td><%= text_field_tag('username')%></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><%= password_field_tag('password') %></td>
-        </tr>
-       
-    </table>
-    
-     <br>
-     <br>
-    
-    <table>
     <tr>
-        <td><%= submit_tag("Login") %></td>
-        <td><p style="color:red"> <%=params[:msg]%> </p></td>
+      <td>Username:</td>
+      <td><%= text_field_tag('username')%></td>
     </tr>
-    </table
 
+    <tr>
+      <td>Password:</td>
+      <td><%= password_field_tag('password') %></td>
+    </tr>
+  </table>
 
+   <br>
+   <br>
+
+  <table>
+    <tr>
+      <td><%= submit_tag("Login") %></td>
+      <td><p style="color:red"> <%=params[:msg]%> </p></td>
+    </tr>
+  </table
 <% end %>
-
-
-
