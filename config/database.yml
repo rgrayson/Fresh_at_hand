@@ -3,23 +3,8 @@
 #   gem 'pg'
 #
 
-# original
-# default: &default
-#   adapter: sqlite3
-#   pool: 5
-#   timeout: 5000
-# development:
-#   <<: *default
-#   database: db/development.sqlite3
-# test:
-#   <<: *default
-#   database: db/test.sqlite3
-# production:
-#   <<: *default
-#   database: db/production.sqlite3
 
-
-#POSTGRES
+#POSTGRES local (cloud9)
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -35,18 +20,31 @@ test:
   database: ff_orders_test
 
 production:
-  <<: *default
+#  <<: *default
   host: localhost
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
-# webserver, this does not work
+
+ 
+# #POSTGRES from webserver
+# default: &default
 # adapter: postgresql
 # encoding: unicode
 # pool: 50
 # webaddress: 'brapp.avifoodsystems.com'
-# host: 'pg-sql-svr-1'
+# host: 'PG-SQL-SVR-1'
 # port: 5432
 # database: 'BRWeb'
 # username: 'rgrayson'
-# password: ''
+# password: '$4Z39VeE#BG8+LFd6TNw'
+
+# development:
+#   <<: *default
+  
+# test:
+#   <<: *default
+  
+# production:
+#   <<: *default
+  
