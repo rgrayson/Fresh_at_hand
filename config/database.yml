@@ -1,10 +1,4 @@
-# Postgresql
-#   Ensure the pg gem is defined in your Gemfile
-#   gem 'pg'
-#
-
-
-#POSTGRES local (cloud9)
+#POSTGRES
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -12,9 +6,11 @@ default: &default
   pool: 50
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+
 development:
   <<: *default
   database: ff_orders_dev
+
 test:
   <<: *default
   database: ff_orders_test
@@ -25,8 +21,6 @@ production:
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
-
- 
 # #POSTGRES from webserver
 # default: &default
 # adapter: postgresql
@@ -41,10 +35,9 @@ production:
 
 # development:
 #   <<: *default
-  
+
 # test:
 #   <<: *default
-  
+
 # production:
 #   <<: *default
-  
