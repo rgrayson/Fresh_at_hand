@@ -29,138 +29,147 @@
 
 <!-- misc text -->
 <p></p>
-<p class="p1">Directions:</p>
-<p class="p1">Edit/Change "Use for Label" setting as needed for Custom Label. Then enter # copies and click PRINT</p>
+<p class='p1'>Directions:</p>
+<p class='p1'>Edit/Change "Use for Label" setting as needed for Custom Label. Then enter # copies and click PRINT</p>
 <p></p>
 
 <!-- Begin Form tag group -->
-<%= form_tag work_print_label_path, method: 'put' do %>
-    <!-- set hidden fields, these are needed for controler#action [params] -->
-    <% @t_work.each do |tbl| %>
-      <%= hidden_field_tag("rid",tbl.rid) %>
-        <!-- Division/Account Name -->
-      <table>
-        <tr>
-          <td>
-            <p class='p1'>
-              Division: <%= select_tag('div2',options_from_collection_for_select(@div_list,'div_name','div_name',nil), :class => 'p1') %>
-            </p>
-          </td>
-          <td>
-            <p class='p1'>
-              Account: <%= select_tag('acnt_name2',options_from_collection_for_select(@acnt_list,'acnt_name','acnt_name',nil), :class => 'p1') %>
-            </p>
-          </td>
-        </tr>
-      </table>
+<%= form_for @t_work, url: work_print_label_print_path(@t_work), method: :get, class: 'form' do |form| %>
+  <!-- set hidden fields, these are needed for controler#action [params] -->
+  <%= form.hidden_field :rid, value: @t_work.rid %>
+    <!-- Division/Account Name -->
+  <table>
+    <tr>
+      <td>
+        <p class='p1'>
+          Division: <%= select_tag('div2',options_from_collection_for_select(@div_list,'div_name','div_name',nil), class: 'p1') %>
+        </p>
+      </td>
+      <td>
+        <p class='p1'>
+          Account: <%= select_tag('acnt_name2',options_from_collection_for_select(@acnt_list,'acnt_name','acnt_name',nil), class: 'p1') %>
+        </p>
+      </td>
+    </tr>
+  </table>
 
-      <!-- # COPIES/Print -->
-      <table>
-        <tr>
-          <td><p class="p1">Copies:</p></td>
-          <td><%= text_field_tag("copies",1,{maxlength:2, size:5,class:'p1'}) %></td>
-          <td><%= submit_tag("Print", class: 'btn_med') %></td></td>
-        </tr>
-      </table>
-    <% end %>
+  <!-- # COPIES/Print -->
+<!--   <table>
+    <tr>
+      <td><p class='p1'>Copies:</p></td>
+      <td>
+        <%#= text_field_tag 'copies', 1, { maxlength: 2, size: 5, class: 'p1' } %>
+      </td>
+      <td>
+        <a href="#" onclick="window.print();return false;">print me</a>
+        <%#= submit_tag 'Print', name: "print[#{@t_work.rid}]", class: 'btn_med', formtarget: '_blank' %>
+      </td>
+    </tr>
+  </table> -->
 
-    <!-- fill form with editable settings -->
-    <table id="t1">
-      <col style="width:10%">
-      <col style="width:10%">
-      <col style="width:4%">
+  <!-- fill form with editable settings -->
+  <table id='t1'>
+    <col style="width:10%">
+    <col style="width:10%">
+    <col style="width:4%">
+    <tr>
+      <th>Setting</th>
+      <th>Default Value</th>
+      <th>Use for Label</th>
+    </tr>
+
+    <%# @t_work.each do |@t_work| %>
       <tr>
-        <th>Setting</th>
-        <th>Default Value</th>
-        <th>Use for Label</th>
+        <td>Label Name</td>
+        <td><%= @t_work.label_name %></td>
+        <td><%= text_field_tag("label_name2",@t_work.label_name2,{maxlength:25, size:25}) %></td>
       </tr>
 
-      <% @t_work.each do |tbl| %>
-        <tr>
-          <td>Label Name</td>
-          <td><%= tbl.label_name %></td>
-          <td><%= text_field_tag("label_name2",tbl.label_name2,{maxlength:25, size:25}) %></td>
-        </tr>
+      <tr>
+        <td>UPC / Scan Code</td>
+        <td><%= @t_work.scan_code %></td>
+        <td><%= @t_work.scan_code2 %></td>
+      </tr>
 
-        <tr>
-          <td>UPC / Scan Code</td>
-          <td><%= tbl.scan_code %></td>
-          <td><%= tbl.scan_code2 %></td>
-        </tr>
+      <tr>
+        <td>Recommended Selling Price $</td>
+        <td><%= @t_work.sel_prc %></td>
+        <td><%= text_field_tag("sel_prc2",@t_work.sel_prc2,{maxlength:25, size:25}) %></td>
+      </tr>
 
-        <tr>
-          <td>Recommended Selling Price $</td>
-          <td><%= tbl.sel_prc %></td>
-          <td><%= text_field_tag("sel_prc2",tbl.sel_prc2,{maxlength:25, size:25}) %></td>
-        </tr>
+      <tr>
+        <td>Half Portion</td>
+        <td>No</td>
+        <td><%= select_tag("half_port2",options_for_select(["No","Yes"],"No")) %></td>
+      </tr>
 
-        <tr>
-          <td>Half Portion</td>
-          <td>No</td>
-          <td><%= select_tag("half_port2",options_for_select(["No","Yes"],"No")) %></td>
-        </tr>
+      <tr>
+        <td>Special Notes</td>
+        <td></td>
+        <td><%= text_field_tag("special_notes2",nil,{maxlength:25, size:25}) %></td>
+      </tr>
 
-        <tr>
-          <td>Special Notes</td>
-          <td></td>
-          <td><%= text_field_tag("special_notes2",nil,{maxlength:25, size:25}) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Egg</td>
+        <td><%= @t_work.alg_egg %></td>
+        <td><%= select_tag("alg_egg2",options_for_select(["","Y"],@t_work.alg_egg2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Egg</td>
-          <td><%= tbl.alg_egg %></td>
-          <td><%= select_tag("alg_egg2",options_for_select(["","Y"],tbl.alg_egg2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-ShellFish</td>
+        <td><%= @t_work.alg_shellfish %></td>
+        <td><%= select_tag("alg_shellfish2",options_for_select(["","Y"],@t_work.alg_shellfish2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-ShellFish</td>
-          <td><%= tbl.alg_shellfish %></td>
-          <td><%= select_tag("alg_shellfish2",options_for_select(["","Y"],tbl.alg_shellfish2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Fish</td>
+        <td><%= @t_work.alg_fish %></td>
+        <td><%= select_tag("alg_fish2",options_for_select(["","Y"],@t_work.alg_fish2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Fish</td>
-          <td><%= tbl.alg_fish %></td>
-          <td><%= select_tag("alg_fish2",options_for_select(["","Y"],tbl.alg_fish2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Soy</td>
+        <td><%= @t_work.alg_soy %></td>
+        <td><%= select_tag("alg_soy2",options_for_select(["","Y"],@t_work.alg_soy2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Soy</td>
-          <td><%= tbl.alg_soy %></td>
-          <td><%= select_tag("alg_soy2",options_for_select(["","Y"],tbl.alg_soy2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Milk</td>
+        <td><%= @t_work.alg_milk %></td>
+        <td><%= select_tag("alg_milk2",options_for_select(["","Y"],@t_work.alg_milk2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Milk</td>
-          <td><%= tbl.alg_milk %></td>
-          <td><%= select_tag("alg_milk2",options_for_select(["","Y"],tbl.alg_milk2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Tree Nuts</td>
+        <td><%= @t_work.alg_treenuts %></td>
+        <td><%= select_tag("alg_treenuts2",options_for_select(["","Y"],@t_work.alg_treenuts2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Tree Nuts</td>
-          <td><%= tbl.alg_treenuts %></td>
-          <td><%= select_tag("alg_treenuts2",options_for_select(["","Y"],tbl.alg_treenuts2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Peanuts</td>
+        <td><%= @t_work.alg_peanuts %></td>
+        <td><%= select_tag("alag_peanuts2",options_for_select(["","Y"],@t_work.alg_peanuts2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Peanuts</td>
-          <td><%= tbl.alg_peanuts %></td>
-          <td><%= select_tag("alag_peanuts2",options_for_select(["","Y"],tbl.alg_peanuts2)) %></td>
-        </tr>
+      <tr>
+        <td>Allergen-Wheat</td>
+        <td><%= @t_work.alg_wheat %></td>
+        <td><%= select_tag("alg-wheat2",options_for_select(["","Y"],@t_work.alg_wheat2)) %></td>
+      </tr>
 
-        <tr>
-          <td>Allergen-Wheat</td>
-          <td><%= tbl.alg_wheat %></td>
-          <td><%= select_tag("alg-wheat2",options_for_select(["","Y"],tbl.alg_wheat2)) %></td>
-        </tr>
+      <tr>
+        <td>Ingredients</td>
+        <td><%= @t_work.ingredient_list %></td>
+        <td><%= @t_work.ingredient_list %></td>
+        <%= hidden_field_tag("ingredient_list",@t_work.ingredient_list) %>
+      </tr>
+    <%# end %>
+  </table>
 
-        <tr>
-          <td>Ingredients</td>
-          <td><%= tbl.ingredient_list %></td>
-          <td><%= tbl.ingredient_list %></td>
-          <%= hidden_field_tag("ingredient_list",tbl.ingredient_list) %>
-        </tr>
-      <% end %>
-    </table>
+  <div>
+    <br>
+    <%= form.submit 'Print', class: 'btn_med', formtarget: '_blank' %>
+    <!-- <a href="#" onclick="window.print();return false;">print me</a> -->
+  </div>
 
 <% end %>

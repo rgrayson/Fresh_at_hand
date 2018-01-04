@@ -45,7 +45,7 @@ class RecipeController < ApplicationController
     typ = params[:typ]
 
     #set common recordsource
-    @t_recipe = Recipe.where("rid=?",params[:rid])
+    @t_recipe = Recipe.where(rid: params[:rid])
 
     #direct to desired showx.html.erb based omn typ
     #this enables filtering of display flds
@@ -54,7 +54,7 @@ class RecipeController < ApplicationController
       #have to use work table approach to keep values entered by user for print
       #separate from defualts.  Can find no other way?
       #clear work table
-      WorkPrintLabel.delete_all()
+      WorkPrintLabel.delete_all
       #refill with Recipe data
       @t_recipe.each do |tbl|
          w = WorkPrintLabel.new
@@ -89,8 +89,8 @@ class RecipeController < ApplicationController
       end
 
       #set source for view
-      @t_work = WorkPrintLabel.all()
-      @t_error = WorkPrintLabel.where("rid=0")
+      @t_work  = WorkPrintLabel.last
+      @t_error = WorkPrintLabel.where(rid: 0)
       render 'show1'
     elsif typ == "2"
       #ingredients, @t_recipe already set

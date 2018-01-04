@@ -1,0 +1,38 @@
+<div>
+  <h1>
+    <%= @work_print_label.label_name %>
+  </h1>
+
+  <h3 class='bold'>
+    <span class='pull-left'>
+      <%= @recipe.calories || '0' %> Cal
+    </span>
+
+    <span class='pull-right'>
+      $<%= @work_print_label.sel_prc %>
+    </span>
+  </h3>
+
+  <div class='small'>
+    <p>PRODUCED BY AVI FOODSYSTEMS, INC.</p>
+    <p>3401 TECHNOLOGY DR , FINDLAY, OH 45840</p>
+    <p>Ingredients: <%= @work_print_label.ingredient_list %></p>
+  </div>
+</div>
+
+<br>
+
+<div>
+  <p>
+    <span class='pull-left'>Enjoy By:</span> <span><%= @recipe.ser_size %></span>
+  </p>
+  <p class='center'>
+    <%= @work_print_label.scan_code %>
+  </p>
+</div>
+
+<div>
+  <p class='bold'>
+    <%= @work_print_label.special_notes2 %>
+  </p>
+</div>
